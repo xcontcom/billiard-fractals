@@ -6,9 +6,9 @@ Complex systems often appear chaotic or incomprehensible, yet closer examination
 
 While the system described in this article may appear trivial at first glance, the resulting patterns exhibit quasi-fractal behavior that can be analyzed, encoded, and even predicted through symbolic methods. The work presented here was developed independently through direct observation, rather than derived from prior literature.
 
-A useful way to motivate this exploration is by analogy with a common physical phenomenon—wave interference. Consider waves on the surface of a river: a wavefront moves toward the shore, reflects, and overlaps with itself. Do these reflections contain an underlying order? Is it possible to extract structure from the interference?
+A useful way to motivate this exploration is by analogy with a common physical phenomenon - wave interference. Consider waves on the surface of a river: a wavefront moves toward the shore, reflects, and overlaps with itself. Do these reflections contain an underlying order? Is it possible to extract structure from the interference?
 
-To investigate this, we simplify the system. Rather than modeling the full wave, we consider only the motion vector—essentially, a ray. We also smooth the “shoreline” and discretize the environment into a rectangular grid. From this setup emerges the core construction of this article.
+To investigate this, we simplify the system. Rather than modeling the full wave, we consider only the motion vector - essentially, a ray. We also smooth the “shoreline” and discretize the environment into a rectangular grid. From this setup emerges the core construction of this article.
 
 <details><summary>:)</summary>
   
