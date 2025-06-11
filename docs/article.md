@@ -11,16 +11,18 @@ A useful way to motivate this exploration is by analogy with a common physical p
 To investigate this, we simplify the system. Rather than modeling the full wave, we consider only the motion vector - essentially, a ray. We also smooth the “shoreline” and discretize the environment into a rectangular grid. From this setup emerges the core construction of this article.
 
 <details><summary>:)</summary>
-  
+
 ---
-  
-Let me be honest. The line about "watching waves on the surface of a river" - that's just a narrative device. Sure, I've stood by rivers and had deep thoughts (who hasn't?), but that's not where these fractals came from. The real story is different.
 
-As a kid, I had this idea that chaos doesn’t truly exist. When something seems chaotic, it just means you haven’t found the pattern yet. I wanted to prove this to myself - not anyone else - so I began looking for the simplest possible system that could appear chaotic but wasn’t.
+The example of waves on the surface of a river serves as a real, intuitive starting point - an accessible physical system that demonstrates how simple rules, such as reflection and interference, can produce complex behavior. It illustrates the central idea: that what appears chaotic often emerges from deterministic structure.
 
-What I came up with was this: take a rectangle, send a sine wave from one corner, and let it reflect off the edges. Since a sine wave is nonlinear, it intersects itself in seemingly unpredictable places. I didn’t have the tools to simulate this properly at the time (I was around 14 and hadn’t started programming yet, though I’d read a lot of technical stuff - including GW-BASIC).
+The initial motivation was driven by the conviction that apparent disorder is not randomness, but the result of unresolved or hidden structure. Any system that seems chaotic is governed by rules - its complexity a consequence of perspective, not unpredictability.
 
-So I simplified it further. I replaced the sine wave with a straight line and made it dashed, to preserve periodicity. It turned into something you could draw with pencil and paper - and it still produced fascinating, structured patterns. That’s where all of this started.
+To explore this further, attention turned to constructing the simplest possible system that could look chaotic yet remain fully deterministic.
+
+One such system involved a sine wave originating from the corner of a rectangle and reflecting off its boundaries. The nonlinearity of the sine function causes it to intersect itself in complex and unintuitive ways. However, due to limited tools available at the time, the model was simplified even further.
+
+Instead of a sine wave, a straight line was used. The line was made periodic (dashed), and the system was designed to be reproducible using only a pencil and a sheet of graph paper. Despite its simplicity, this construction revealed intricate and structured patterns—forming the foundation of what would later be described as the “billiard fractals.”
 
 ---
 
