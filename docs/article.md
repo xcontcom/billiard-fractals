@@ -73,7 +73,9 @@ Each step increases resolution while preserving the underlying structure.
 <details><summary>233×377 preview comparison</summary>
 
 ---  
+
 The article’s header image corresponds to the 233×377 pattern. Its structure can be directly compared with the earlier 13×21 case, highlighting recursive properties.  
+
 ---
 
 </details>
