@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Geometric Fractals</title>
+<style>
+body{
+	color: #333;
+	background-color: #E0E0E0;
+}
+</style>
+<script type="text/javascript" src="turtle.js"></script>
+</head>
+<body>
+<div class="fractal" id="myid">
+	<input type="button" value="draw" onclick="init();" /><br />
+	canvas size <input type="text" id="size" value="800" /><br />
+	segment size <input type="text" id="q" value="5" /><br />
+	x0 <input type="text" id="xx" value="400" />, y0 <input type="text" id="yy" value="400" /><br />
+	alpha1 <input type="text" id="n" value="90" />, alpha2 <input type="text" id="n1" value="-90" /><br />
+	sequence <input type="text" id="s" size="100" value="1010010110100101" /><br /><br />
+	<div>
+		<canvas id="myCanvas"></canvas>
+	</div>
+</div>
+<div id="console-log0"></div>
+</body>
+</html>
