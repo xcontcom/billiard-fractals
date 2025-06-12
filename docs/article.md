@@ -84,12 +84,6 @@ When constructing these patterns using Fibonacci-based dimensions, we are effect
 
 Although the overall structure of the pattern remains consistent during Fibonacci-based refinement, certain symmetries within the pattern depend on the parity of the rectangle's side lengths. Specifically, when both the width and height are odd integers, the resulting pattern exhibits clear diagonal, horizontal, and vertical symmetry. This occurs because the billiard path, under these conditions, terminates in the corner diagonally opposite from its starting point. In contrast, when one or both sides are even, the path terminates elsewhere, and the resulting pattern loses this precise symmetry - although the underlying recursive structure remains unchanged.
 
-A fundamental question arises here - one that persisted between the initial formulation of this system (2013) and the deeper symbolic analysis developed later (2019):  
-**What happens when the rectangle's proportions are truly irrational - when the side lengths are in exact ratio (1 : φ), not just approximated by integers?**  
-How do the patterns behave then? And more importantly, how can they be generated without relying on approximation?
-
-This question leads naturally into the next stage of exploration: analyzing the boundary sequences themselves. These sequences - which we term *fractal sequences* - encode the full structure of the original billiard patterns. By studying their composition, we will develop a method to reconstruct the entire 2D pattern directly from the 1D sequence. This, in turn, sets the stage for reducing the 2D billiard system to a 1D representation - a step that allows us to extend the system to irrational configurations and eventually uncover a simple mathematical expression that generates the same fractal behavior.
-
 ---
 
 ## Boundary Analysis and Recursive Symmetry
@@ -175,3 +169,10 @@ While the above generators are constructed specifically for Fibonacci-sized rect
 ---
 
 </details>
+
+A fundamental question emerged early in this exploration: what happens when the rectangle’s proportions are truly irrational — when the side lengths form an exact ratio of (1 : φ), rather than a rational approximation like 13 : 21? Can the resulting patterns still be constructed? And if so, what form do they take?
+
+This problem remained unresolved after the initial symbolic constructions developed in 2013. While recursive generators such as `seqence(fn, fn1)` accurately reproduced the symbolic boundary sequences for Fibonacci-based rectangles, they were inherently tied to integer dimensions. The challenge was clear: how can one generate the same structures when no exact grid alignment is possible — when the trajectory no longer closes?
+
+This question defines the next stage of the investigation. To answer it, we will analyze the boundary sequences themselves — the so-called *fractal sequences* — and show how they encode the entire 2D pattern. From this, we will develop a method to reconstruct full patterns from sequences alone, and begin to reduce the billiard system from two dimensions to one. That reduction will ultimately open the door to irrational configurations.
+
