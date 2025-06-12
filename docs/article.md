@@ -288,6 +288,131 @@ This is where we begin to uncover the origin of these fractals.
 
 ## One-dimensional billiards
 
+On the <img src="images/X.svg" alt="$X$"> number axis, we take two points: <img src="images/0.svg" alt="$0$"> and <img src="images/M.svg" alt="$M$">.
+
+![Picture](images/23.png)
+
+Moving from one point to another, we measure the distances <img src="images/N.svg" alt="$N$">:
+
+![Picture](images/24.png)
+
+We marked a point. We continue to measure the distance from this point, maintaining the direction. If we reach point <img src="images/0.svg" alt="$0$"> or <img src="images/M.svg" alt="$M$">, we change the direction:
+
+![Picture](images/25.png)
+
+As you can see in the pictures above, the first point shows the place where the ball touches the bottom wall of the billiard table. We are not interested in this point. We will only mark the points <img src="images/2kN.svg" alt="$2kN$"> for <img src="images/k012.svg" alt="$k=0,1,2,…$">.
+
+How to mark these points? Let's unfold our billiard table on the <img src="images/X.svg" alt="$X$"> axis. Let's mark the points <img src="images/0M2M3M.svg" alt="$0, M, 2M, 3M,…$">. Now, having reached point <img src="images/M.svg" alt="$M$">, we do not change the direction of movement, but continue moving to point <img src="images/2M.svg" alt="$2M$">.
+
+![Picture](images/26.png)
+
+Points that are multiples of <img src="images/M.svg" alt="$M$"> divide our axis into segments. We will conditionally mark these segments with ones and zeros (alternating). On the segments marked with zeros, the ball (in rectangular billiards) moves from left to right. On the segments marked with ones, it moves from right to left. Or more simply: the ball moves from left to right if <img src="images/Q_k0.svg" alt="$Q_k=0$">, for
+
+<img src="images/floor{2kN}frac{M}{mod}2.svg" alt="Q_k=\lfloor \frac{2kN}{M} \rfloor \; (\textrm{mod} \; 2); \quad k=0,1,2,…$">
+
+It is easy to see that the point at which the ball touched the upper wall of the billiard table is the remainder of dividing <img src="images/2kN.svg" alt="$2kN$"> by <img src="images/M.svg" alt="$M$">. In this case, we don't need to record the movement of the ball in the opposite direction. We take the integer part of dividing <img src="images/2kN.svg" alt="$2kN$"> by <img src="images/M.svg" alt="$M$">, if it is even — we calculate the remainder of dividing <img src="images/2kN.svg" alt="$2kN$"> by <img src="images/M.svg" alt="$M$">. We divide the resulting remainder by 2 (the distance between adjacent touch points is two cells). This gives us the indices of the array elements that correspond to rightward motion (zeros). All other entries - representing leftward trajectories - are filled with ones.
+
+Sequence length = <img src="images/frac{M}{2}.svg" alt="$\frac{M}{2}$">.
+
+```js
+function sequence(m,n){
+	var md=m/2;
+	var array=[];
+	for(var k=0;k<md;k++) array[k]=1;
+	for(var k=0;k<md;k++) if(Math.floor(2*k*n/m)%2==0) array[((2*k*n)%m)/2]=0;
+	return array;
+}
+```
+
+Now we can build a binary sequence for billiards with any sides <img src="images/M.svg" alt="$M$"> and <img src="images/N.svg" alt="$N$"> (natural numbers). Some examples:
+144x89 (Fibonacci numbers):
+010100101101001011010110100101101001010010110101001011010100101
+
+169x70 (Pell numbers):
+010101101010010101101010010101101010100101011010101001010110101001010101010010101101010010
+
+233x55 (odd Fibonacci numbers <img src="images/F_n.svg" alt="$F_n$"> and <img src="images/F_{n-3}.svg" alt="$F_{n-3}$">):
+010010011011011001001101101100100100110110010010011011001001001101101100100110110110010010011011001001001101100100100
+
+<details><summary>This is dope</summary>
+
+---
+
+Very curious graphs are obtained if you take a billiard table with width <img src="images/M.svg" alt="$M$"> and construct sequences for each <img src="images/N.svg" alt="$N$"> from <img src="images/0.svg" alt="$0$"> to <img src="images/M.svg" alt="$M$">. Then these sequences are stacked.
+
+```js
+	var array;
+	for(var y=1;y<m;y++){
+		array=sequence(m,y);
+		for(var x=0;x<array.length;x++){
+			if(array[x]==0) context.fillRect (x, y, 1, 1);
+		}
+	}
+```
+
+Some examples.
+
+| M=610 | M=611 | M=612 | M=613 | M=614 |
+|------|-------|--------|--------|--------|
+| ![Picture](images/M610.png) | ![Picture](images/M611.png) | ![Picture](images/M612.png) | ![Picture](images/M613.png) | ![Picture](images/M614.png) |
+
+[JavaScript implementation](http://xcont.com/binarypattern/sequences/)  
+[`sequences.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/sequences.js)
+
+---
+
+</details>
+
+We have sequences. How else can we visualize binary sequences? With Turtle graphics.
+
+---
+
+### Turtle graphics
+
+The sequence length determines the complexity of the curve. The more irrational the ratio between M and N, the more non-periodic and fractal - like the structure becomes.
+
+Draw a segment. Then take bits from our sequence one by one. If bit = 1 - rotate the segment relative to the previous one by <img src="images/60^{circ}.svg" alt="$60^{\circ}$"> (clockwise). If bit = 0 - rotate the segment by <img src="images/-60^{circ}.svg" alt="$-60^{\circ}$">. The beginning of the next segment is the end of the previous one.
+
+![Picture](images/27.png)
+
+Take two large enough Fibonacci numbers: <img src="images/F29.svg" alt="$F_{29}=514229$"> and <img src="images/F28.svg" alt="$F_{28}=317811$">. This ensures that the pattern is long enough for the fractal structure to become apparent, but still bounded enough for visualization.
+
+We built the sequence:
+0010110100101101001010010110100101101010010110100101101001010010110100101… (257114 symbols plus a zero bit).
+
+Visualize using turtle graphics. The size of the initial segment is 1 pixels (the initial segment is in the lower right corner):
+
+![Picture](images/28.png)
+
+The next example is Pell numbers.
+<img src="images/Pn.svg" alt="$P_n=\begin{cases}0, n=0;\\1, n=1 \\2P_{n-1}+P_{n-2}, n>1 \end{cases}$">
+
+We take <img src="images/P16.svg" alt="$P_{16}=470832$"> and <img src="images/P15.svg" alt="$P_{15}=195025$">.
+
+The sequence is:
+00101001010110101001010101010100101011010100101010110101001010101101 (235415 symbols plus a zero bit).
+
+The size of the initial segment is 1 pixel:
+
+![Picture](images/29.png)
+
+Another example is the odd Fibonacci numbers <img src="images/F_n.svg" alt="$F_n$"> and <img src="images/F_{n-3}.svg" alt="$F_{n-3}$">.
+Let's take <img src="images/F28.svg" alt="$F_{28}=317811$"> and <img src="images/F25.svg" alt="$F_{25}=75025$">.
+The sequence is:
+00110110010010011011001001101101100100110110110010011011011001001… (158905 plus a zero bit).
+Instead of the angles <img src="images/60^{circ}.svg" alt="$60^{\circ}$"> and <img src="images/-60^{circ}.svg" alt="$-60^{\circ}$">, we will use the angles <img src="images/90^{circ}.svg" alt="$90^{\circ}$"> and <img src="images/-90^{circ}.svg" alt="$-90^{\circ}$">.
+The size of the initial segment is 1 pixels:
+
+![Picture](images/30.png)
+
+This curve is called "[Fibonacci Word Fractal](https://en.wikipedia.org/wiki/Fibonacci_word_fractal)". The Hausdorff dimension for this curve is known:
+
+<img src="images/hausdorff.svg" alt="$D=3{\frac {\log \Phi }{\log(1+{\sqrt {2}})}}=1.6379; \quad \Phi =\frac {1+{\sqrt {5}}}{2}$">
+
+[JavaScript implementation](https://xcont.com/binarypattern/turtle/)  
+[`turtle.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/turtle.js)
+
+---
 
 
 
