@@ -96,10 +96,11 @@ This question leads naturally into the next stage of exploration: analyzing the 
 
 To understand why the structure persists under Fibonacci expansion, consider cutting a square from the pattern. The boundary behavior reveals that the path (i.e., the “billiard ball”) always returns to its entry point:
 
-![Square reflection](images/2.png)  
-![Trajectory loop](images/3.png)
+![Square reflection](images/2.png)
 
-Additionally, the path always crosses an even number of cells. This ensures that the pattern remains consistent across such subdivisions.
+Moreover, the path always (except for diagonal cases) crosses an even number of cells. This ensures that the pattern remains consistent across such subdivisions.
+
+![Trajectory loop](images/3.png)
 
 By recursively separating square regions from the larger pattern, the symbolic seed of the system can be exposed:
 
