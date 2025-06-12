@@ -414,5 +414,159 @@ This curve is called "[Fibonacci Word Fractal](https://en.wikipedia.org/wiki/Fib
 
 ---
 
+### The problem unsolved yet.
+
+Is it possible to draw a pattern for billiards, the sides of which are incommensurable (one of the sides is an irrational number)? At first glance, the task seems impossible. Trying to solve this problem, we will face a number of questions:
+
+1. If the sides are incommensurable, we cannot tile the billiards with cells of the same size.
+2. If the sides are incommensurable, the ball will infinitely reflect and will never get into the corner.
+3. Sequences in billiards are not filled in order, but chaotically.
+
+![Picture](images/31.gif)
+
+The first two questions obviously have no solution. But if there were a way to fill the sequence in order, then we could, moving along the sequence from left to right, restore the pattern in the way we used above. And thus see what the pattern looks like in the upper left corner of the billiard table whose sides are incommensurable.
+
+---
+
+### o_O
+
+Let's take a billiard table, the sides of which are equal to the Fibonacci numbers (this trick may not work with other numbers). Let's throw a ball into it and record the number of times the ball touches the upper wall. We'll paint the numbers white if the ball moved from right to left and black if the ball moved from left to right:
+
+![Picture](images/32.png)
+
+White corresponds to the number one in the sequence, black to zero. Now let's arrange the numbers in order:
+
+![Picture](images/33.png)
+
+We've got exactly the same sequence of ones and zeros.
+
+21(1), 13(0), 8(1), 26(0), 5(0), 16(1), 18(0), 3(1), 24(1), 10(0), 11(1), 23(0), 2(0), 19(1), 15(0), 6(1), 27(1), 7(0), 14(1), 20(0), 1(1), 22(1), 12(0), 9(1), 25(0), 4(0), 17(1)
+
+1(1), 2(0), 3(1), 4(0), 5(0), 6(1), 7(0), 8(1), 9(1), 10(0), 11(1), 12(0), 13(0), 14(1), 15(0), 16(1), 17(1), 18(0), 19(1), 20(0), 21(1), 22(1), 23(0), 24(1), 25(0), 26(0), 27(1)
+
+
+<details><summary>For other numbers</summary>
+
+---
+
+The origin is the upper left corner. The <img src="images/X.svg" alt="$X$"> axis is the width of the billiard table <img src="images/M.svg" alt="$M$">. The <img src="images/Y.svg" alt="$Y$"> axis is the height of the billiard table <img src="images/N.svg" alt="$N$">. The numbers for which the sequences match are marked with white dots:
+
+![Picture](images/34.png)
+
+Numbers for which the sequence is inverted:
+
+![Picture](images/35.png)
+
+JavaScript implementation:
+
+![Picture](images/36.png)
+
+The first line is the mouse coordinates, which are used as the width and height of the billiard table.
+The second line is the first 100 bits of the sequence obtained through the remainders of the division.
+The third line is the first 100 bits of the sequence obtained through the parity of the integer part.
+
+Black color - Visualization of the first sequence using Turtle graphics.
+Purple - visualization of the second sequence.
+
+[JavaScript implementation](http://xcont.com/binarypattern/mouseturtle/)  
+[`turtle_dynamic.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/turtle_dynamic.js)
+
+---
+
+</details>
+
+In fact, in some cases, we do not need to take the remainder from the division. For Fibonacci numbers, it is enough to check the parity of the integer part of the division of <img src="images/2kN.svg" alt="$2kN$"> by <img src="images/M.svg" alt="$M$">:
+
+<img src="images/floor{2kN}frac{M}{mod}2.svg" alt="$Q_k=\lfloor \frac{2kN}{M} \rfloor \; (\textrm{mod} \; 2); \quad k=0,1,2,…$">
+
+In the numerator we have <img src="images/F_n.svg" alt="$F_{n}$">. In the denominator - <img src="images/F_{n+1}.svg" alt="$F_{n+1}$">.
+
+As is known:
+<img src="images/frac{1}{Phi}.svg" alt="$\lim_{n\to\infty} \frac{F_n}{F_{n+1}}= \frac{1}{\Phi}$">
+
+This gives us a bridge: rational billiards (<img src="images/F_n.svg" alt="$F_{n}$">, <img src="images/F_{n+1}.svg" alt="$F_{n+1}$">) converge toward an irrational limit - <img src="images/Phi.svg" alt="$\Phi$"> - allowing us to define an infinite symbolic sequence.
+
+<img src="images/Phi.svg" alt="$\Phi$"> is the Golden Ratio. An irrational number. Now we can write our formula as:
+
+<img src="images/frac{2k}{Phi}.svg" alt="$Q_k=\lfloor \frac{2k}{\Phi} \rfloor \; (\textrm{mod} \; 2); \quad k=0,1,2,…$">
+
+We have obtained a formula with which we can fill in the sequence for a billiard table, the width of which is <img src="images/Phi.svg" alt="$\Phi$"> and the height is <img src="images/1.svg" alt="$\1$">. The length of the sequence = <img src="images/infinity.svg" alt="$\infty$">, but we can restore part of the pattern by moving from left to right along the sequence and looking into the upper left corner of the billiard table. It remains to figure out how to calculate <img src="images/Phi.svg" alt="$\Phi$">
+
+One divided by the golden ratio can be rewritten as:
+
+<img src="images/frac{1}{Phi}equal.svg" alt="$\frac{1}{\Phi}=\frac {-1+{\sqrt {5}}}{2}$">
+
+We can get rid of the two:
+
+<img src="images/frac{2k}{Phi}equal.svg" alt="$\frac{2k}{\Phi}=\frac {2k(-1+{\sqrt {5}})}{2}=k\sqrt{5}-k$">
+
+Our formula takes the form:
+
+<img src="images/sqrt{5}.svg" alt="$Q_k=\lfloor k\sqrt{5}-k \rfloor \; (\textrm{mod} \; 2); \quad k=0,1,2,…$">
+
+Now we can draw part of the billiard pattern with sides <img src="images/1.svg" alt="$\1$"> and <img src="images/Phi.svg" alt="$\Phi$">:
+
+![Picture](images/37.png)
+
+If we do not subtract <img src="images/k.svg" alt="$k$"> each time, then every second bit in the sequence is inverted. We get the general formula:
+
+<img src="images/floor(kx)mod2.svg" alt="$Q_k=\lfloor k\sqrt{x} \rfloor \; (\textrm{mod} \; 2); \quad k=0,1,2,…$">:
+
+Let's build a sequence for $k\sqrt{2}$
+
+```js
+var x=2;
+var q=[];
+for(var k=0;k<256000;k++) q[k]=Math.floor(k*Math.sqrt(x))%2;
+```
+
+The first few bits of the sequence ([A083035](http://oeis.org/A083035)):
+01001101100100110011001101100100110110011001001101100100110110…
+
+Angles are <img src="images/90^{circ}.svg" alt="$90^{\circ}$"> and <img src="images/-90^{circ}.svg" alt="$-90^{\circ}$">. The size of the initial segment is 5 pixels:
+
+![Picture](images/38.png)
+
+<details><summary>This is interesting</summary>
+
+---
+
+From this curve, we can reconstruct the "billiard pattern" and see what is around the curve:
+
+![Picture](images/39.png)
+
+It would be interesting to choose <img src="images/M.svg" alt="$M$"> and <img src="images/N.svg" alt="$N$"> for this pattern.
+
+---
+
+</details>
+
+<details><summary>And this</summary>
+
+---
+
+Number of segments in the repeating part of the curve = <img src="images/Pn(2).svg" alt="$P_n$"> (Pell numbers: 0, 1, 2, 5, 12, 29, 70, 169, 408, 985, 2378, … ).
+
+![Picture](images/40.png)
+
+<img src="images/sqrt{2}equal.svg" alt="$\sqrt{2} = \lim_{n\to\infty} \tfrac{P_{n-1}+P_n}{P_n}$">
+
+---
+
+</details>
+
+Someone may doubt that the parity of the integer part of <img src="images/ksqrt2.svg" alt="$k\sqrt{2}$"> gives a fractal sequence. Let's visualize part of this sequence with the visualizer described earlier:
+
+![Picture](images/41.png)
+
+For clarity, I colored the longest curve in the resulting pattern:
+
+![Picture](images/42.png)
+
+This curve has a name - "Fibonacci word fractal".
+
+Thus, by gradually reducing billiard geometry through symbolic encodings, we arrive at a powerful realization: even irrational systems, which defy spatial tiling and corner reflection, can still produce deterministic, fractal structure — using only integer math.
+
+---
 
 
