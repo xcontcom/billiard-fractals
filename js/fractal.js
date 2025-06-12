@@ -4,6 +4,7 @@ let sizey = 512;
 function init() {
 	let size=document.getElementById('size').value*1;
 	let k=document.getElementById('k').value*1;
+	let plus=document.getElementById('plus').value*1;
 	let canvas;
 	canvas = document.getElementById('myCanvas');
 	context = canvas.getContext('2d');
@@ -14,7 +15,7 @@ function init() {
 	context.fillStyle = 'rgb(255,255,255)';
 	let a=[0];
 	for(let i=1;i<sizex;i++){
-		if(Math.floor(i*Math.sqrt(k))%2==1)
+		if(Math.floor(i*(Math.sqrt(k)+plus))%2==1)
 			a[i]=a[i-1]+1;
 		else
 			a[i]=a[i-1]-1;
