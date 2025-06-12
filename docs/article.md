@@ -82,7 +82,7 @@ The article’s header image corresponds to the 233×377 pattern. Its structure 
 
 When constructing these patterns using Fibonacci-based dimensions, we are effectively approximating a rectangle with side lengths in the golden ratio — that is, a ratio approaching (1 : φ). With each step, the approximation improves, and the pattern gains additional structure and resolution.
 
-However, it is important to note that while the **underlying structure** of the pattern remains consistent, the **positioning of the pattern** may shift depending on whether the Fibonacci dimensions used are even or odd indexed. This does not indicate a change in the rules or a misalignment, but rather reflects a deeper structural sensitivity to the parity of the dimensions.
+Although the overall structure of the pattern remains consistent during Fibonacci-based refinement, certain symmetries within the pattern depend on the parity of the rectangle's side lengths. Specifically, when both the width and height are odd integers, the resulting pattern exhibits clear diagonal, horizontal, and vertical symmetry. This occurs because the billiard path, under these conditions, terminates in the corner diagonally opposite from its starting point. In contrast, when one or both sides are even, the path terminates elsewhere, and the resulting pattern loses this precise symmetry — although the underlying recursive structure remains unchanged.
 
 A fundamental question arises here — one that persisted between the initial formulation of this system (2013) and the deeper symbolic analysis developed later (2019):  
 **What happens when the rectangle's proportions are truly irrational — when the side lengths are in exact ratio (1 : φ), not just approximated by integers?**  
