@@ -158,7 +158,7 @@ function seqenceFibonacci(iterations) {
 }
 ```
 
-These constructions reproduce the symbolic edges of Fibonacci-based patterns and may be interpreted as recursive encoding schemes.
+These constructions reproduce the symbolic edges of Fibonacci-based patterns and can be interpreted as recursive encoding schemes derived directly from the observed geometry.
 
 <details><summary>Toward Generalization</summary>
 
@@ -170,9 +170,8 @@ While the above generators are constructed specifically for Fibonacci-sized rect
 
 </details>
 
-A fundamental question emerged early in this exploration: what happens when the rectangle’s proportions are truly irrational — when the side lengths form an exact ratio of (1 : φ), rather than a rational approximation like 13 : 21? Can the resulting patterns still be constructed? And if so, what form do they take?
+One of the central challenges that motivated the progression from the original 2013 construction to the deeper analysis in 2019 was the question of irrational proportions: what happens when the rectangle’s side lengths form a truly irrational ratio, such as (1 : φ), rather than an integer-based approximation like 13 : 21?
 
-This problem remained unresolved after the initial symbolic constructions developed in 2013. While recursive generators such as `seqence(fn, fn1)` accurately reproduced the symbolic boundary sequences for Fibonacci-based rectangles, they were inherently tied to integer dimensions. The challenge was clear: how can one generate the same structures when no exact grid alignment is possible — when the trajectory no longer closes?
+While recursive generators such as `seqence(fn, fn1)` accurately reproduced the symbolic boundary sequences for Fibonacci-based rectangles, they were inherently tied to integer dimensions. The challenge was clear: how can one generate the same structures when no exact grid alignment is possible - when the trajectory no longer closes?
 
-This question defines the next stage of the investigation. To answer it, we will analyze the boundary sequences themselves — the so-called *fractal sequences* — and show how they encode the entire 2D pattern. From this, we will develop a method to reconstruct full patterns from sequences alone, and begin to reduce the billiard system from two dimensions to one. That reduction will ultimately open the door to irrational configurations.
-
+This question defines the next stage of the investigation. To answer it, we will analyze the boundary sequences themselves - the so-called *fractal sequences* - and show how they encode the entire 2D pattern. We will show that these sequences - far from being edge artifacts - contain enough information to deterministically reconstruct the entire 2D pattern. This finding enables a powerful dimensional reduction: the entire billiard system can be expressed as a 1D sequence.
