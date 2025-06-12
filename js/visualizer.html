@@ -1,0 +1,21 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Binary Fractals</title>
+<script type="text/javascript" src="visualizer.js"></script>
+</head>
+<body>
+<div class="fractal" id="myid">
+	<input type="button" value="Draw" onClick="start();" /><br />
+	Size <input type="text" id="size" value="3" /><br />
+	Sequence <input type="text" id="seq" value="010100101101001010" /><br />
+	M (mod 2) = 0? <input type="checkbox" id="even" value="1" /><br />
+	Infinite sequence? <input type="checkbox" id="inf" value="1" /><br /><br />
+	<div>
+		<canvas id="myCanvas"></canvas>
+	</div>
+</div>
+<div id="console-log0"></div>
+</body>
+</html>
