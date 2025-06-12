@@ -176,53 +176,117 @@ While recursive generators such as `seqence(fn, fn1)` accurately reproduced the 
 
 This question defines the next stage of the investigation. To answer it, we will analyze the boundary sequences themselves - the so-called *fractal sequences* - and show how they encode the entire 2D pattern. We will show that these sequences - far from being edge artifacts - contain enough information to deterministically reconstruct the entire 2D pattern. This finding enables a powerful dimensional reduction: the entire billiard system can be expressed as a 1D sequence.
 
+---
 
+## Binary Billiards
 
+We now shift from the dashed-line visualization to a binary representation. Instead of drawing the trajectory, we color the cells the ball passes through, alternating black (0) and white (1) with each step.
 
+Given a rectangle with side lengths <img src="images/M.svg" alt="$M$"> and <img src="images/N.svg" alt="$N$">, the ball is launched from a corner and follows diagonal motion, reflecting off the walls. Each step alternates the internal binary state.
 
+![Trajectory](images/5.png)
 
+![Resulting pattern (coprime)](images/6.png)
 
+The reflection rule causes the pattern to shift by one cell after each bounce. This alternation creates a consistent visual structure.
 
+![Binary fill](images/7.png)
 
+![Reflection rule](images/8.png)
 
+When <img src="images/M.svg" alt="$M$"> and <img src="images/N.svg" alt="$N$"> are coprime, the trajectory visits every cell exactly once:
 
+![Full coverage](images/9.png)
 
+[JavaScript implementation](https://xcont.com/binarypattern/)  
+[`binarypattern.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/binnarypattern.js)
 
+If the dimensions share a common divisor (<img src="images/gcd(M,N)1.svg" alt="$gcd(M, N) > 1$">), the trajectory terminates at a corner before filling all cells:
 
+![Terminating early](images/10.png)
 
-## Binary billiards.
+In this case, the system is equivalent to a billiard in a reduced rectangle with dimensions (<img src="images/frac{M}{GCD}.svg" alt="$\frac{M}{GCD}$">, <img src="images/frac{N}{GCD}.svg" alt="$\frac{N}{GCD}$">):
 
-We can take a rectangular billiard with sides M and N, throw a ball into it and mark the trajectory with a dashed line:
+![Reduced case](images/11.png)
 
-![Picture](images/5.png)
+---
 
-For coprime M and N we get the pattern:
+### Boundary Behavior and Symmetry
 
-![Picture](images/6.png)
+In the coprime case, the ball crosses every row and column. Notably, each pass between the top and left walls consists of an **even** number of steps.
 
-In the binary version, we mark the trajectory not with a dashed line, but by painting the cells alternately, black (0) and white (1):
+![Even passes](images/12.png)  
+![Even passes 2](images/13.png)
 
-![Picture](images/7.png)
+From this, we can observe a critical symmetry: the **left column** contains the inverted bits of the **top row**, excluding the initial bit.
 
-Rules for reflections on the boundaries:
+![Boundary inversion](images/14.png)
 
-![Picture](images/8.png)
+Furthermore, every second bit (<img src="images/2_{n-1}.svg" alt="$M$">) in the top sequence is the inverted version of its neighbor (<img src="images/2_{n}.svg" alt="$2_{n}$">). Therefore, we can discard every second bit and retain full pattern information:
 
-For coprime M and N, the trajectory passes through each cell:
+![Halved sequence](images/15.png)
 
-![Picture](images/9.png)
+For example, with dimensions <img src="images/M21N13.svg" alt="$M=21, N=13$">, the resulting sequence is: 1010010110
 
-[JavaScript implementation of this algorithm](https://xcont.com/binarypattern/)  
-[`binnarypattern.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/binnarypattern.js) - source code
+This sequence is **unique** for every coprime pair <img src="images/MN.svg" alt="$(M, N)$">. It encodes all necessary information about the pattern.
 
-If the sides have a common divisor, then the ball hits the corner before it passes through each cell:
+---
 
-![Picture](images/10.png)
+### Sequence Interpretation
 
-We consider this case as billiards in a rectangle with sides <img src="images/frac{M}{GCD}.svg" alt="$\frac{M}{GCD}$" style="vertical-align: middle; filter: invert(100%);"> and <img src="images/frac{N}{GCD}.svg" alt="$\frac{N}{GCD}$" style="vertical-align: middle; filter: invert(100%);"> (GCD is the greatest common divisor):
+The trajectory between two reflections from the upper wall is always <img src="images/2N.svg" alt="$2N$"> cells long. Each such pass begins with a black cell (bit = 0) and ends with a white cell (bit = 1):
 
-![Picture](images/11.png)
+![Reflection path](images/16.png)
 
+More formally:  
+- A bit of `1` indicates that the ball arrived from a reflection off the **right wall**
+- A bit of `0` indicates it came from the **left wall**
+
+This mapping gives the sequence its meaning. In the diagram below, the trajectory is colored black when moving right and white when moving left:
+
+![Direction-colored trajectory](images/17.png)
+
+---
+
+### Reconstruction from the Sequence
+
+The full billiard pattern can be reconstructed from this single boundary sequence. Even extrapolation beyond the grid is possible.
+
+Let us begin by placing the bits along the top edge of a square grid of width <img src="images/M.svg" alt="$M$">. Bits are spaced every 2 cells — these are the points where the ball would hit the upper wall:
+
+![Bit placement](images/18.png)
+
+Then:
+- If the bit is `1`, we extend a diagonal to the **left**
+- If the bit is `0`, we extend it to the **right**
+
+![Direction rules](images/19.png)
+
+The first bit (bit 0) is treated specially — it begins the pattern:
+
+![Zero bit start](images/20.png)
+
+The reconstruction produces the exact original pattern:
+
+![Reconstructed pattern (animated)](images/21.gif)  
+![Reconstructed result](images/22.png)
+
+[JavaScript implementation](https://xcont.com/binarypattern/visualizer/)  
+[`visualizer.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/visualizer.js)
+
+---
+
+This result shows that the 1D sequence contains **complete information** about the original 2D billiard pattern.
+
+But we're not done.
+
+From the surface of the river, we reduced the system to a rectangular billiard with a dashed diagonal trajectory. Then we reduced it further — to a binary field generated by alternating internal states. Now, we push the reduction one step further: we collapse the entire 2D billiard into a one-dimensional rule. A symbolic system with no geometry left — only structure.
+
+This is where we begin to uncover the origin of these fractals.
+
+---
+
+## One-dimensional billiards
 
 
 
