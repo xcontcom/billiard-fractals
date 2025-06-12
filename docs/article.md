@@ -38,7 +38,7 @@ An animated version:
 
 ![Picture](images/2.gif)
 
-A representative output pattern:
+Output pattern:
 
 ![Picture](images/pettern0.png)
 
