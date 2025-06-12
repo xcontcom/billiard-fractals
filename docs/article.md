@@ -175,3 +175,55 @@ One of the central challenges that motivated the progression from the original 2
 While recursive generators such as `seqence(fn, fn1)` accurately reproduced the symbolic boundary sequences for Fibonacci-based rectangles, they were inherently tied to integer dimensions. The challenge was clear: how can one generate the same structures when no exact grid alignment is possible - when the trajectory no longer closes?
 
 This question defines the next stage of the investigation. To answer it, we will analyze the boundary sequences themselves - the so-called *fractal sequences* - and show how they encode the entire 2D pattern. We will show that these sequences - far from being edge artifacts - contain enough information to deterministically reconstruct the entire 2D pattern. This finding enables a powerful dimensional reduction: the entire billiard system can be expressed as a 1D sequence.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Binary billiards.
+
+We can take a rectangular billiard with sides M and N, throw a ball into it and mark the trajectory with a dashed line:
+
+![Picture](images/5.png)
+
+For coprime M and N we get the pattern:
+
+![Picture](images/6.png)
+
+In the binary version, we mark the trajectory not with a dashed line, but by painting the cells alternately, black (0) and white (1):
+
+![Picture](images/7.png)
+
+Rules for reflections on the boundaries:
+
+![Picture](images/8.png)
+
+For coprime M and N, the trajectory passes through each cell:
+
+![Picture](images/9.png)
+
+[JavaScript implementation of this algorithm](https://xcont.com/binarypattern/)  
+[`binnarypattern.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/binnarypattern.js) - source code
+
+If the sides have a common divisor, then the ball hits the corner before it passes through each cell:
+
+![Picture](images/10.png)
+
+We consider this case as billiards in a rectangle with sides <img src="images/frac{M}{GCD}.svg" alt="$\frac{M}{GCD}$" style="vertical-align: middle; filter: invert(100%);"> and <img src="images/frac{N}{GCD}.svg" alt="$\frac{N}{GCD}$" style="vertical-align: middle; filter: invert(100%);"> (GCD is the greatest common divisor):
+
+![Picture](images/11.png)
+
+
+
+
+
