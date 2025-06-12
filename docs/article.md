@@ -22,7 +22,7 @@ To explore this further, attention turned to constructing the simplest possible 
 
 One such system involved a sine wave originating from the corner of a rectangle and reflecting off its boundaries. The nonlinearity of the sine function causes it to intersect itself in complex and unintuitive ways. However, due to limited tools available at the time, the model was simplified even further.
 
-Instead of a sine wave, a straight line was used. The line was made periodic (dashed), and the system was designed to be reproducible using only a pencil and a sheet of graph paper. Despite its simplicity, this construction revealed intricate and structured patterns—forming the foundation of what would later be described as the “billiard fractals.”
+Instead of a sine wave, a straight line was used. The line was made periodic (dashed), and the system was designed to be reproducible using only a pencil and a sheet of graph paper. Despite its simplicity, this construction revealed intricate and structured patterns-forming the foundation of what would later be described as the “billiard fractals.”
 
 ---
 
@@ -51,7 +51,7 @@ A selection of patterns generated from rectangles with various dimensions:
 | <img src="images/pettern9.png"> | <img src="images/pettern10.png"> | <img src="images/pettern11.png"> | <img src="images/pettern12.png"> |
 
 [JavaScript implementation of this algorithm](https://xcont.com/pattern.html)  
-[`pattern.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/pattern.js) — source code
+[`pattern.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/pattern.js) - source code
 
 ---
 
@@ -80,15 +80,15 @@ The article’s header image corresponds to the 233×377 pattern. Its structure 
 
 </details>
 
-When constructing these patterns using Fibonacci-based dimensions, we are effectively approximating a rectangle with side lengths in the golden ratio — that is, a ratio approaching (1 : φ). With each step, the approximation improves, and the pattern gains additional structure and resolution.
+When constructing these patterns using Fibonacci-based dimensions, we are effectively approximating a rectangle with side lengths in the golden ratio - that is, a ratio approaching (1 : φ). With each step, the approximation improves, and the pattern gains additional structure and resolution.
 
-Although the overall structure of the pattern remains consistent during Fibonacci-based refinement, certain symmetries within the pattern depend on the parity of the rectangle's side lengths. Specifically, when both the width and height are odd integers, the resulting pattern exhibits clear diagonal, horizontal, and vertical symmetry. This occurs because the billiard path, under these conditions, terminates in the corner diagonally opposite from its starting point. In contrast, when one or both sides are even, the path terminates elsewhere, and the resulting pattern loses this precise symmetry — although the underlying recursive structure remains unchanged.
+Although the overall structure of the pattern remains consistent during Fibonacci-based refinement, certain symmetries within the pattern depend on the parity of the rectangle's side lengths. Specifically, when both the width and height are odd integers, the resulting pattern exhibits clear diagonal, horizontal, and vertical symmetry. This occurs because the billiard path, under these conditions, terminates in the corner diagonally opposite from its starting point. In contrast, when one or both sides are even, the path terminates elsewhere, and the resulting pattern loses this precise symmetry - although the underlying recursive structure remains unchanged.
 
-A fundamental question arises here — one that persisted between the initial formulation of this system (2013) and the deeper symbolic analysis developed later (2019):  
-**What happens when the rectangle's proportions are truly irrational — when the side lengths are in exact ratio (1 : φ), not just approximated by integers?**  
+A fundamental question arises here - one that persisted between the initial formulation of this system (2013) and the deeper symbolic analysis developed later (2019):  
+**What happens when the rectangle's proportions are truly irrational - when the side lengths are in exact ratio (1 : φ), not just approximated by integers?**  
 How do the patterns behave then? And more importantly, how can they be generated without relying on approximation?
 
-This question leads naturally into the next stage of exploration: analyzing the boundary sequences themselves. These sequences — which we term *fractal sequences* — encode the full structure of the original billiard patterns. By studying their composition, we will develop a method to reconstruct the entire 2D pattern directly from the 1D sequence. This, in turn, sets the stage for reducing the 2D billiard system to a 1D representation — a step that allows us to extend the system to irrational configurations and eventually uncover a simple mathematical expression that generates the same fractal behavior.
+This question leads naturally into the next stage of exploration: analyzing the boundary sequences themselves. These sequences - which we term *fractal sequences* - encode the full structure of the original billiard patterns. By studying their composition, we will develop a method to reconstruct the entire 2D pattern directly from the 1D sequence. This, in turn, sets the stage for reducing the 2D billiard system to a 1D representation - a step that allows us to extend the system to irrational configurations and eventually uncover a simple mathematical expression that generates the same fractal behavior.
 
 ---
 
@@ -110,14 +110,14 @@ By recursively separating square regions from the larger pattern, the symbolic s
 
 ## Binary Representation and Symbolic Extraction
 
-The path traced by the billiard ball through the grid can be encoded as a binary sequence. As the ball moves from cell to cell, its internal state alternates according to a fixed rule. We can label these alternating states with binary values — for example, assigning 0 to one state and 1 to the other. This produces a binary field that can be visualized directly.
+The path traced by the billiard ball through the grid can be encoded as a binary sequence. As the ball moves from cell to cell, its internal state alternates according to a fixed rule. We can label these alternating states with binary values - for example, assigning 0 to one state and 1 to the other. This produces a binary field that can be visualized directly.
 
 For example:
 
 ![Dashed path](images/pattern34x55.png)  
 ![Binary encoded](images/pattern34x55_bin.png)
 
-The top row of the binary field can be viewed as a symbolic boundary — a compact representation of the billiard system's behavior along a single edge. By studying the structure of the full 2D pattern and recursively extracting square sections from it, we arrive at symbolic generation rules. These rules allow us to reconstruct the boundary sequences using only binary operations.
+The top row of the binary field can be viewed as a symbolic boundary - a compact representation of the billiard system's behavior along a single edge. By studying the structure of the full 2D pattern and recursively extracting square sections from it, we arrive at symbolic generation rules. These rules allow us to reconstruct the boundary sequences using only binary operations.
 
 Two core recursive generators are presented below:
 
