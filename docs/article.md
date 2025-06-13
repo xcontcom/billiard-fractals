@@ -946,7 +946,9 @@ We then visualize both:
 
 ...using this surface. Despite differing in output (binary vs. continuous), both render structurally equivalent patterns: the sine version produces smooth grayscale textures, while the floor function yields crisp binary segmentation. In either case, the resulting 2D images exhibit radial, interference-like motifs - strongly reminiscent of diffraction or holographic patterns.
 
-//examples
+| binary | continuous |
+|---|---|
+| <img src="images/hol1div512bin.png"> | <img src="images/hol1div512con.png"> |
 
 The sine-based rendering reveals finer gradients and smoother interference zones, but the underlying symbolic structure is identical to the binary version.
 
