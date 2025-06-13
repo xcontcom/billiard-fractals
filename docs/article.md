@@ -957,14 +957,13 @@ The sine-based rendering reveals finer gradients and smoother interference zones
 ---
 
 ### Holographic Analogy
-The analogy with holography becomes evident when viewed through the lens of surface intersection.
+In classical holography, a point source emits nested spherical wavefronts. When these are sliced by a flat recording plane, the amplitude at each (x, y) position encodes a continuous interference pattern. The spacing between wavefronts defines the wavelength - effectively a discretization step in the z-direction.
 
-In classical optical holography, a **spherical wavefront** from a point source is intersected by a **flat surface** (the photographic plate). The resulting interference pattern encodes 3D information into a 2D intensity map. Discretizing this wavefront (e.g., sampling it at regular intervals) still yields structured and coherent patterns.
+Our system inverts this paradigm: instead of slicing nested curved shells with a flat surface, we intersect a single curved surface with stacked, evenly spaced binary planes - symbolic layers representing a plane wavefront. Each (x, y) coordinate samples which symbolic layer the surface intersects, producing a binary (or thresholded) value.
 
-Our system inverts this paradigm: we begin with a **flat symbolic space** and intersect it with a **curved mathematical surface**. When sampled symbolically - either via floor or sine thresholding - the intersection produces rich, interference-like binary textures.
+While the components differ - continuous vs symbolic, curved emitter vs curved surface - the underlying mechanism is the same: a curved geometry intersected by layered structure, producing interference-like textures from simple spatial rules.
 
-Despite differences in physical interpretation, both systems share a core structure:
-Irrational curvature meets symbolic slicing, and complexity emerges.
+Despite differences in physical interpretation, both systems share a core structure: curved geometry meets layered slicing - and complexity emerges.
 
 ---
 
