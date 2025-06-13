@@ -905,4 +905,62 @@ Similarly, applying Turtle graphics results in "chaotic" outputs
 
 suggesting that the underlying symbolic dynamics differ significantly from the linear case. This observation motivated us to try a simpler visual encoding.
 
+This prompts a reconsideration of visualization methods. Rather than relying on complex binary sequence encodings (e.g., symbolic filling or turtle graphics), we adopt a simpler approach:
+
+1. Place the first k elements of the sequence q[x] in the initial row.
+2. For each subsequent row along the y-axis, use q[x+ky].
+3. The result is a striking array of structured, interference-like patterns.
+
+This reveals that a seemingly chaotic 1D sequence can exhibit coherent spatial behavior when unfolded along two dimensions. Generalizing this, we rewrite the indexing expression as:
+
+```js
+q[x] = Math.floor((x + k * y) ** 2 * Math.sqrt(2)) % 2;
+```
+
+Expanding the square:
+
+<img src="images/part4_xky.svg" alt="$(x + k y)^2 = x^2 + 2kxy + k^2 y^2$">
+
+This quadratic form suggests a symbolic sampling of a 3D curved surface. We abstract this into a general expression:
+
+<img src="images/part4_general_formula.svg" alt="$z = a \left( x^2 + bxy + c y^2 \right)^d$">
+
+Here:
+
+* <img src="images/a.svg" alt="$a$"> controls vertical scaling (the *discretization frequency*),
+* <img src="images/b.svg" alt="$b$"> introduces diagonal shear,
+* <img src="images/c.svg" alt="$c$"> modulates stretching along the <img src="images/part4_y.svg" alt="$y$">-axis,
+* and <img src="images/d.svg" alt="$d$"> introduces curvature nonlinearity.
+
+For example, setting <img src="images/b0c1d1.svg" alt="$b=0,c=1,d=1$"> yields:
+
+<img src="images/part4_paraboloid.svg" alt="$z = a \left( x^2 + y^2 \right)$">
+
+an **elliptical paraboloid**, a classic bowl-shaped surface.
+
+We then visualize both:
+
+<img src="images/part4_zsqrt2.svg" alt="$\left\lfloor z \sqrt{2} \right\rfloor \bmod 2$">
+
+<img src="images/part4_sinz.svg" alt="$\sin\left( \pi z \sqrt{2} \right)$">
+
+...using this surface. Despite differing in output (binary vs. continuous), both render structurally equivalent patterns: the sine version produces smooth grayscale textures, while the floor function yields crisp binary segmentation. In either case, the resulting 2D images exhibit radial, interference-like motifs - strongly reminiscent of diffraction or holographic patterns.
+
+//examples
+
+The sine-based rendering reveals finer gradients and smoother interference zones, but the underlying symbolic structure is identical to the binary version.
+
+---
+
+### Holographic Analogy
+The analogy with holography becomes evident when viewed through the lens of surface intersection.
+
+In classical optical holography, a **spherical wavefront** from a point source is intersected by a **flat surface** (the photographic plate). The resulting interference pattern encodes 3D information into a 2D intensity map. Discretizing this wavefront (e.g., sampling it at regular intervals) still yields structured and coherent patterns.
+
+Our system inverts this paradigm: we begin with a **flat symbolic space** and intersect it with a **curved mathematical surface**. When sampled symbolically - either via floor or sine thresholding - the intersection produces rich, interference-like binary textures.
+
+Despite differences in physical interpretation, both systems share a core structure:
+Irrational curvature meets symbolic slicing, and complexity emerges.
+
+---
 
