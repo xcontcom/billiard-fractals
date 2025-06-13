@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>hologram pattern</title>
+<style>
+body{
+	color: #333;
+	background-color: #E0E0E0;
+}
+</style>
+<script type="text/javascript" src="hologram_s.js"></script>
+</head>
+<body>
+<div class="fractal" id="myid">
+	<input type="button" value="Draw" onClick="draw();" /><br />
+	ax <input type="text" id="a1" value="1" /><br />
+	ay <input type="text" id="a2" value="1" /> a=(ax/ay)<br />
+	b <input type="text" id="b" value="1" /><br />
+	c <input type="text" id="c" value="1" /><br />
+	d <input type="text" id="d" value="1.01" /><br />
+	phase <input type="text" id="phase" value="0" /><br />
+	c4 <input type="text" id="c4" value="0" /><br /><br />
+	
+	<div>
+		<canvas id="myCanvas"></canvas>
+		<canvas id="myCanvas1"></canvas>
+	</div>
+</div>
+	<div id="console-log0"></div>
+<div id="footer">
+</div>
+</body>
+</html>
