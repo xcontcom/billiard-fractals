@@ -848,4 +848,18 @@ q[x] = Math.floor(x * x * Math.sqrt(2)) % 2;
 
 This substitution shifts us from uniform linear growth to a system governed by accelerating curvature, producing richer and more complex symbolic behavior.
 
+Visualizing this sequence with the Symbolic Filling Algorithm yields a disordered pattern.
 
+![Picture](images/sqrt2surface.png)
+
+<details><summary>Gif</summary>
+	
+![Picture](images/sqrt2surface.gif)
+
+</details>
+
+Similarly, applying Turtle graphics results in "chaotic" outputs
+
+![Picture](images/turtle.png)
+
+suggesting that the underlying symbolic dynamics differ significantly from the linear case. This observation motivated us to try a simpler visual encoding.
