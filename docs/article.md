@@ -814,6 +814,34 @@ generates a similarly complex structure. Though the function seems simple, stepp
 
 Which means: **irrational step size alone is enough to create symbolic fractals**. It’s not the shape of the function - it’s the incommensurability that matters.
 
+### Geometric Interpretation of Linear Discretization
 
+We begin with a geometric interpretation of the function
+
+<img src="images/part4_florksqrt2mod2.svg" alt="$\left\lfloor k \sqrt{2} \right\rfloor \bmod 2$">
+
+This can be visualized as a straight line <img src="images/part4_yksqrt2.svg" alt="$y=k \sqrt{2}$"> traversing a periodic 2D space where the <img src="images/part4_y.svg" alt="$y$">-axis alternates between bands labeled 0 and 1. The value of the function at each step depends on the integer part of <img src="images/ksqrt2.svg" alt="$k\sqrt{2}$">, determining whether the line intersects an even or odd band.
+
+![Picture](images/linear_function.png)
+
+Alternatively, we may interpret the system as a function <img src="images/part4_yx.svg" alt="$y=x$"> with <img src="images/part4_sqrt2.svg" alt="$\sqrt{2}$"> acting as a discretization step along the vertical axis. This perspective reduces the behavior of the original billiard system to a symbolic sampling of a continuous linear function.
+
+Both
+
+<img src="images/part4_both.svg" alt="$\left\lfloor k \sqrt{2} \right\rfloor \bmod 2 \quad \text{and} \quad \sin\left( \pi k \sqrt{2} \right) > 0$">
+
+serve as symbolic discretization methods - one yielding binary values via integer floor division, the other through sign thresholding on a continuous sinusoid.
+
+### Transition to Quadratic Functions
+
+Having reduced the system to a linear function and its discretization, we now explore the effects of replacing the base function <img src="images/part4_yx.svg" alt="$y=x$"> with a nonlinear alternative:
+
+<img src="images/part4_yxx.svg" alt="$y = x^2$">
+
+We construct the new sequence using:
+
+<img src="images/part4_qx_xx.svg" alt="$Q_x=\lfloor x^2\sqrt{x} \rfloor \; (\textrm{mod} \; 2); \quad x=0,1,2,…$">
+
+This substitution shifts us from uniform linear growth to a system governed by accelerating curvature, producing richer and more complex symbolic behavior.
 
 
