@@ -1013,3 +1013,19 @@ For <img src="images/hol_b0c1d1div5.svg" alt="$b=0, c=1, d=1/5$"> our equation b
 | <img src="images/hol_d1div5_a1.png"> | <img src="images/hol_d1div5_a10.png"> |
 | <img src="images/hol_a100.svg" alt="$a=100$"> | <img src="images/hol_a100.svg" alt="$a=1000$"> |
 | <img src="images/hol_d1div5_a100.png"> | <img src="images/hol_d1div5_a1000.png"> |
+
+The most interesting patterns are obtained if we take a <img src="images/d.svg" alt="$d$"> that differs slightly from 1. For example, for 
+
+<img src="images/hol_b0c1d1div101.svg" alt="$b=0, c=1, d=\frac{1}{1.01}$">
+
+| | |
+|---|---|
+| <img src="images/hol_a182div58.svg" alt="$a=\frac{182}{58}$"> | <img src="images/hol_a173div165.svg" alt="$a=\frac{173}{165}$"> |
+| <img src="images/hol_b0c1d101_182div58.png"> | <img src="images/hol_b0c1d101_173div165.png"> |
+| <img src="images/hol_a170div109.svg" alt="$a=\frac{170}{109}$"> | <img src="images/hol_a111div70.svg" alt="$a=\frac{111}{70}$"> |
+| <img src="images/hol_b0c1d101_170div109.png"> | <img src="images/hol_b0c1d101_111div70.png"> |
+| <img src="images/hol_a57div178.svg" alt="$a=\frac{57}{178}$"> | <img src="images/hol_a186div119.svg" alt="$a=\frac{186}{119}$"> |
+| <img src="images/hol_b0c1d101_57div178.png"> | <img src="images/hol_b0c1d101_186div119.png"> |
+
+<img src="images/hol_b1c1d1div101.svg" alt="$b=1, c=1, d=\frac{1}{1.01}$">
+
