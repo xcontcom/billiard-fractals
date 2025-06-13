@@ -842,6 +842,10 @@ We construct the new sequence using:
 
 <img src="images/part4_qx_xx.svg" alt="$Q_x=\lfloor x^2\sqrt{x} \rfloor \; (\textrm{mod} \; 2); \quad x=0,1,2,…$">
 
+```js
+q[x] = Math.floor(x * x * Math.sqrt(2)) % 2;
+```
+
 This substitution shifts us from uniform linear growth to a system governed by accelerating curvature, producing richer and more complex symbolic behavior.
 
 
