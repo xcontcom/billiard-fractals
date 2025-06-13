@@ -967,3 +967,49 @@ Despite differences in physical interpretation, both systems share a core struct
 
 ---
 
+Our picture size is 400 pixels. We used <img src="images/hol_a1div400.svg" alt="$frac{1}{400}$"> for previous picture to fit the picture.
+
+Here another pattern with <img src="images/hol_a1div200.svg" alt="$frac{1}{200}$">:
+
+| binary | continuous |
+|---|---|
+| <img src="images/hol1div200bin.png"> | <img src="images/hol1div200con.png"> |
+
+<img src="images/c.svg" alt="$c$"> modulates stretching along the <img src="images/part4_y.svg" alt="$y$">-axis
+
+(we will use continuous patterns from now).
+
+| <img src="images/hol_c2.svg" alt="$c=2$"> | <img src="images/hol_c02.svg" alt="$c=0.2$"> |
+|---|---|
+| <img src="images/hol_c2.png"> | <img src="images/hol_c02.png"> |
+
+<img src="images/b.svg" alt="$b$"> introduces diagonal shear
+
+| <img src="images/hol_b-15.svg" alt="$b=-1.5$"> | <img src="images/hol_b15.svg" alt="$b=1.5$"> |
+|---|---|
+| <img src="images/hol_b-15.png"> | <img src="images/hol_b15.png"> |
+
+For <img src="images/hol_b0c-1d1.svg" alt="$b=0,c=-1,d=1$"> our equation becomes:
+
+<img src="images/hol_zax2-y2.svg" alt="$z=a(x^2-y^2)$">
+
+This is a hyperbolic paraboloid - a surface with negative Gaussian curvature:
+
+![Picture](images/hyperbolic_paraboloid.png)
+
+| <img src="images/hol_a1div400.svg" alt="$frac{1}{400}$"> | <img src="images/hol_a1div200.svg" alt="$frac{1}{200}$"> |
+|---|---|
+| <img src="images/hol_hyper_1div400.png"> | <img src="images/hol_hyper_1div200.png"> |
+
+For <img src="images/hol_b0c1d1div5.svg" alt="$b=0, c=1, d=1/5$"> our equation becomes:
+
+<img src="images/hol_zax2+y2d1div5.svg" alt="$z=a(x^2+y^2)^{1/5}$">
+
+![Picture](images/maple_screen.png)
+
+| | |
+|---|---|
+| <img src="images/hol_a1.svg" alt="$a=1$"> | <img src="images/hol_a10.svg" alt="$a=10$"> |
+| <img src="images/hol_d1div5_a1.png"> | <img src="images/hol_d1div5_a10.png"> |
+| <img src="images/hol_a100.svg" alt="$a=100$"> | <img src="images/hol_a100.svg" alt="$a=1000$"> |
+| <img src="images/hol_d1div5_a100.png"> | <img src="images/hol_d1div5_a1000.png"> |
