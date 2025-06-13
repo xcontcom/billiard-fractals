@@ -681,3 +681,87 @@ Fractal fill based on:
 
 ---
 
+<details><summary>Perfect Shuffle Comparison (Speculative)</summary>
+
+---
+
+### Pattern Matching via Perfect Shuffles
+
+We can compare fractal sequences from floor-based systems with sequences produced by a [perfect shuffle](https://github.com/xcontcom/perfect-shuffle) function.
+
+Here's our shuffle logic:
+
+```js
+function shuffle(array, shiftAmount) {
+	let len = array.length;
+	let shuffled = new Array(len * 2);
+	for (let i = 0; i < len; i++) {
+		shuffled[2 * i] = array[(i + shiftAmount) % len];
+		shuffled[2 * i + 1] = array[i];
+	}
+	return shuffled;
+}
+```
+
+We start with a base array:
+
+```js
+let array1 = [1, 0];
+for (let i = 0; i < 15; i++) {
+	array1 = shuffle(array1, (y + 45) * 128);
+}
+```
+
+And compare it with this floor-based sequence:
+
+```js
+let array2 = [];
+for (let i = 0; i < sizexy; i++) {
+	array2[i] = Math.floor(i * (y + 45) / 128) % 2;
+}
+```
+
+Both arrays are then visualized using our bit-pattern analysis:
+
+```js
+for (let y = 0; y < sizexy; y++) {
+	// generate array1 or array2
+
+	let digit;
+	let bits = [];
+	for (let i = 0; i < len; i++) {
+		digit = 0;
+		for (let j = 0; j < bitLength; j++) {
+			digit |= array[i + j] << (bitLength - 1 - j);
+		}
+		if (!bits.includes(digit)) {
+			bits.push(digit);
+		}
+	}
+	for (let i = 0; i < bits.length; i++) {
+		context.fillRect(bits[i] * size, y * size, size, size);
+	}
+}
+```
+
+Here are the results:
+
+Perfect shuffle:
+
+![Picture](images/45_128_shuffle.png)
+
+Floor-based sequence:
+
+![Picture](images/45_128_floor.png)
+
+The two patterns are visually identical.
+
+This suggests that in some cases, perfect shuffle systems and irrational-floor systems may produce the same fractal binary sequences — or at least structurally equivalent ones.
+
+We don’t yet have a formal proof or a unifying theory. But the match is too precise to ignore.
+
+More analysis is needed to determine whether these overlaps are coincidence, mathematical identity, or reflections of a deeper shared structure. For now, we consider this a visually compelling anomaly — worth future investigation.
+
+---
+
+</details>
