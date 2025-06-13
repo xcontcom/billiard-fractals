@@ -840,7 +840,7 @@ Having reduced the system to a linear function and its discretization, we now ex
 
 We construct the new sequence using:
 
-<img src="images/part4_qx_xx.svg" alt="$Q_x=\lfloor x^2\sqrt{x} \rfloor \; (\textrm{mod} \; 2); \quad x=0,1,2,…$">
+<img src="images/part4_qx_xx.svg" alt="$Q_x=\lfloor x^2\sqrt{2} \rfloor \; (\textrm{mod} \; 2); \quad x=0,1,2,…$">
 
 ```js
 q[x] = Math.floor(x * x * Math.sqrt(2)) % 2;
