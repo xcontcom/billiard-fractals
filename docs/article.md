@@ -246,6 +246,43 @@ This mapping gives the sequence its meaning. In the diagram below, the trajector
 
 ![Direction-colored trajectory](images/17.png)
 
+<details><summary>Encoding Rational Division via Billiards</summary>
+
+---
+
+A curious side effect of the billiard construction is that it naturally encodes binary division of two numbers. Specifically, by tracking the direction of the billiard ball’s movement at each wall collision, and sampling this information at exponentially increasing intervals, one can extract the binary digits of a rational fraction.
+
+Let the billiard table have side lengths <img src="images/M.svg" alt="$M$"> and <img src="images/N.svg" alt="$N$">, and let the ball bounce between corners. At each collision with the top or bottom wall:
+
+If the ball is moving to the right, record a 0
+
+If moving to the left, record a 1
+
+Then, at every <img src="images/2_n.svg" alt="$2^n$">-th collision (i.e., 1st, 2nd, 4th, 8th, …), we record the state.
+
+Example: for a table of size <img src="images/M21N13.svg" alt="$M=21, N=13$">, we obtain:
+
+![Picture](images/billiard_division.png)
+
+```
+1st  (bottom, →): 0  
+2nd  (top, ←):    1  
+4th  (top, →):    0  
+8th  (top, →):    0  
+16th (top, ←):    1  
+32nd (top, ←):    1  
+...
+```
+
+This produces the binary expansion:
+
+0.1001111001111001111…
+Which is precisely the binary representation of <img src="images/13frac21.svg" alt="$\frac{13}{21}$">.
+
+---
+
+</details>
+
 ---
 
 ### Reconstruction from the Sequence
