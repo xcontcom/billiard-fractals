@@ -834,7 +834,11 @@ serve as symbolic discretization methods - one yielding binary values via intege
 
 ### Transition to Quadratic Functions
 
-Having reduced the system to a linear function and its discretization, we now explore the effects of replacing the base function <img src="images/part4_yx.svg" alt="$y=x$"> with a nonlinear alternative:
+Having reduced the system to a linear function and its discretization, we now explore the effects of replacing the base function <img src="images/part4_yx.svg" alt="$y=x$"> with a nonlinear alternative.
+
+Linear rotation yields symbolic Sturmian sequences. What happens if we increase the curvature? Quadratic growth is the simplest next step.
+
+We now substitute the linear function with:
 
 <img src="images/part4_yxx.svg" alt="$y = x^2$">
 
@@ -863,3 +867,5 @@ Similarly, applying Turtle graphics results in "chaotic" outputs
 ![Picture](images/turtle.png)
 
 suggesting that the underlying symbolic dynamics differ significantly from the linear case. This observation motivated us to try a simpler visual encoding.
+
+
