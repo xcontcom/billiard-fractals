@@ -665,11 +665,23 @@ Fractal fill based on:
 
 ![Picture](images/sqrt2.png)
 
+<details><summary>Gif</summary>
+	
+![Picture](images/sqrt2.gif)
+
+</details>
+
 <img src="images/sqrt5plus1.svg" alt="$Q_n=\lfloor n(\sqrt{5}+1) \rfloor \; (\textrm{mod} \; 2); \quad n=0,1,2,…$">
 
 (Fibonacci-based)
 
 ![Picture](images/sqrt5plus1.png)
+
+<details><summary>Gif</summary>
+	
+![Picture](images/sqrt5plus1.gif)
+
+</details>
 
 ### Interactive
 
