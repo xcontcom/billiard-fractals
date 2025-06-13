@@ -938,6 +938,8 @@ For example, setting <img src="images/b0c1d1.svg" alt="$b=0,c=1,d=1$"> yields:
 
 an **elliptical paraboloid**, a classic bowl-shaped surface.
 
+![Picture](images/paraboloid.png)
+
 We then visualize both:
 
 <img src="images/part4_zsqrt2.svg" alt="$\left\lfloor z \sqrt{2} \right\rfloor \bmod 2$">
@@ -948,7 +950,7 @@ We then visualize both:
 
 | binary | continuous |
 |---|---|
-| <img src="images/hol1div512bin.png"> | <img src="images/hol1div512con.png"> |
+| <img src="images/hol1div400bin.png"> | <img src="images/hol1div400con.png"> |
 
 The sine-based rendering reveals finer gradients and smoother interference zones, but the underlying symbolic structure is identical to the binary version.
 
