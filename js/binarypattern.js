@@ -13,12 +13,13 @@ function droveLines(canvas, x, y){
 	
 	var context=canvas.getContext('2d');
 	context.font="10pt sans-serif";
-	context.beginPath();
+	context.beginPath(); 
 	context.fillStyle = "rgb(255,255,255)"; 
 	context.fillRect (0, 0, canvas.width, canvas.height);
-	context.fillStyle = "rgb(0,0,0)"; 
+	context.fillStyle = "rgb(0,0,0)";
 	
 	var size=Math.floor(document.getElementById('size').value);
+	var kmax=Math.floor(document.getElementById('kmax').value);
 	if(size<=0) size++;
 	
 	var xstart=0, ystart=0;
@@ -37,7 +38,7 @@ function droveLines(canvas, x, y){
 	var x1=0, y1=0;
 	var x2, y2;
 	var xx, yy;
-	var k=1;
+	var k=0;
 	var q=0;
 	if(xstart<xend && ystart<yend){
 		do{
@@ -45,10 +46,12 @@ function droveLines(canvas, x, y){
 			y2=y1+yvector;
 			xx=true;
 			yy=true;
-			k=k*-1;
 						
-			if(k==-1) 
-				context.fillRect(x1*size,y1*size,size,size);
+			if(k>kmax) k=0;
+			const grey = Math.floor(255*k/kmax);
+			context.fillStyle = "rgb("+grey+","+grey+","+grey+")"; 
+			context.fillRect(x1*size,y1*size,size,size);
+			k++;
 			
 			q++;
 			
