@@ -435,6 +435,7 @@ Visualize using turtle graphics. The size of the initial segment is 1 pixels (th
 ![Picture](images/28.png)
 
 The next example is Pell numbers.
+
 <img src="images/Pn.svg" alt="$P_n=\begin{cases}0, n=0;\\1, n=1 \\2P_{n-1}+P_{n-2}, n>1 \end{cases}$">
 
 We take <img src="images/P16.svg" alt="$P_{16}=470832$"> and <img src="images/P15.svg" alt="$P_{15}=195025$">.
