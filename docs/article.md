@@ -199,7 +199,7 @@ When <img src="images/M.svg" alt="$M$"> and <img src="images/N.svg" alt="$N$"> a
 ![Full coverage](images/9.png)
 
 [JavaScript implementation](https://xcont.com/binarypattern/)  
-[`binarypattern.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/binnarypattern.js)
+[`binarypattern.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/binarypattern.js)
 
 If the dimensions share a common divisor (<img src="images/gcd(M,N)1.svg" alt="$gcd(M, N) > 1$">), the trajectory terminates at a corner before filling all cells:
 
