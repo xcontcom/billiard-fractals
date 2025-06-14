@@ -1064,16 +1064,34 @@ The most interesting patterns are obtained if we take a <img src="images/d.svg" 
 ## Conclusion
 This study began with a simple system: a billiard ball reflecting within a rectangular grid. By examining its trajectory and translating spatial behavior into symbolic sequences, we uncovered patterns exhibiting recursive structure, boundary self-similarity, and interference-like properties.
 
-Through progressive abstraction - from 2D reflections to 1D symbolic sequences and eventually to nonlinear surfaces - we showed that binary patterns can arise from discretized irrational steps alone. Formulas of the form:
+Through progressive abstraction - from 2D reflections to 1D symbolic sequences, and eventually to nonlinear surfaces - we showed that binary patterns can emerge from discretized irrational steps alone. Formulas such as:
 
 <img src="images/conclusion.svg" alt="$Q_k=\left\lfloor k \sqrt{x} \right\rfloor \bmod 2 \quad \text{and} \quad Q_k=\sin\left( \pi k \sqrt{x} \right) > 0$"> 
 
-generate deterministic sequences that yield quasi-fractal geometries when visualized spatially. These symbolic systems, though discrete, exhibit behaviors commonly associated with continuous wave phenomena.
+generate deterministic sequences that yield quasi-fractal geometries when visualized spatially. Though entirely discrete, these systems exhibit behaviors commonly associated with continuous wave phenomena.
 
-Further generalization using surface equations like:
+Further generalization using surface equations of the form:
 
 <img src="images/part4_general_formula.svg" alt="$z = a \left( x^2 + bxy + c y^2 \right)^d$"> 
 
-reveals that curvature, shear, and nonlinearity shape the resulting symbolic slices in ways reminiscent of optical interference. The similarity between these binary slice patterns and continuous holographic textures suggests a shared underlying structure - despite entirely different origins.
+reveals that curvature, shear, and nonlinearity shape the resulting symbolic slices in ways reminiscent of optical interference. The resemblance between these binary patterns and holographic textures suggests a structural parallel, despite their different origins.
 
-No physical claims are made. However, the symbolic systems presented here demonstrate that simple integer-based operations, applied to irrational quantities or curved domains, can produce high-order structure with properties of visual and mathematical interest. This offers a bridge between number theory, symbolic dynamics, and emergent spatial organization.
+No physical claims are made. However, the symbolic systems presented here demonstrate that simple integer-based operations, applied to irrational quantities or curved domains, can generate high-order structure with properties of both visual and mathematical interest. This offers a conceptual bridge between number theory, symbolic dynamics, and emergent spatial organization.
+
+<details><summary>Addendum: On Holography and Fractals</summary>
+	
+Symbolic sequences of the form:
+
+<img src="images/conclusion2.svg" alt="$Q_k=\left\lfloor k \sqrt{x} \right\rfloor \bmod 2$"> 
+
+exhibit fractal structure due to the interaction between irrational step sizes and discrete thresholds.
+
+When extended to curved functions, such as:
+
+<img src="images/conclusion3.svg" alt="$Q_k=\left\lfloor k^2 \sqrt{x} \right\rfloor \bmod 2$"> 
+
+the resulting binary fields begin to resemble interference patterns observed in wave-based systems.
+
+Though entirely symbolic, these systems show a striking visual similarity to holographic interference textures. This suggests that certain nonlinear discretizations may encode symbolic analogs of wave behavior - hinting at a deeper structural correspondence between symbolic mathematics and wave-based physical systems.
+
+</details>
