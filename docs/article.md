@@ -201,6 +201,19 @@ When <img src="images/M.svg" alt="$M$"> and <img src="images/N.svg" alt="$N$"> a
 [JavaScript implementation](https://xcont.com/binarypattern/)  
 [`binarypattern.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/binarypattern.js)
 
+<details><summary>Gif</summary>
+
+---
+
+![Gif](images/quazi243_146_12.gif)
+
+[JavaScript implementation](https://xcont.com/binarypattern/binarypattern_point.html)  
+[`binarypattern_point.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/binarypattern_point.js)
+
+---
+
+</details>
+
 If the dimensions share a common divisor (<img src="images/gcd(M,N)1.svg" alt="$gcd(M, N) > 1$">), the trajectory terminates at a corner before filling all cells:
 
 ![Terminating early](images/10.png)
