@@ -235,7 +235,7 @@ From this, we can observe a critical symmetry: the **left column** contains the 
 
 ![Boundary inversion](images/14.png)
 
-Furthermore, every second bit (<img src="images/2_{n-1}.svg" alt="$M$">) in the top sequence is the inverted version of its neighbor (<img src="images/2_{n}.svg" alt="$2_{n}$">). Therefore, we can discard every second bit and retain full pattern information:
+Furthermore, every second bit (<img src="images/2_{n-1}.svg" alt="$2_{n-1}$">) in the top sequence is the inverted version of its neighbor (<img src="images/2_{n}.svg" alt="$2_{n}$">). Therefore, we can discard every second bit and retain full pattern information:
 
 ![Halved sequence](images/15.png)
 
