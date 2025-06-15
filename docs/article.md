@@ -40,15 +40,15 @@ An animated version:
 
 Output pattern:
 
-![Picture](images/pettern0.png)
+![Picture](images/pattern0.png)
 
 A selection of patterns generated from rectangles with various dimensions:
 
 | | | | |
 |---|---|---|---|
-| <img src="images/pettern1.png"> | <img src="images/pettern2.png"> | <img src="images/pettern3.png"> | <img src="images/pettern4.png"> |
-| <img src="images/pettern5.png"> | <img src="images/pettern6.png"> | <img src="images/pettern7.png"> | <img src="images/pettern8.png"> |
-| <img src="images/pettern9.png"> | <img src="images/pettern10.png"> | <img src="images/pettern11.png"> | <img src="images/pettern12.png"> |
+| <img src="images/pattern1.png"> | <img src="images/pattern2.png"> | <img src="images/pattern3.png"> | <img src="images/pattern4.png"> |
+| <img src="images/pattern5.png"> | <img src="images/pattern6.png"> | <img src="images/pattern7.png"> | <img src="images/pattern8.png"> |
+| <img src="images/pattern9.png"> | <img src="images/pattern10.png"> | <img src="images/pattern11.png"> | <img src="images/pattern12.png"> |
 
 [JavaScript implementation of this algorithm](https://xcont.com/pattern.html)  
 [`pattern.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/pattern.js) - source code
