@@ -1057,8 +1057,8 @@ The most interesting patterns are obtained if we take a <img src="images/d.svg" 
 [Dynamic Visualization - static](https://xcont.com/billiard_dynamic/hologram_static/)  
 [`hologram_s.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/hologram_s.js)
 
-[Dynamic Visualization - dynamic](https://xcont.com/billiard_dynamic/hologram_dynamic/)  
-[`hologram.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/hologram.js)
+[Dynamic Visualization - dynamic](https://xcont.com/billiard_dynamic/hologram_dynamic/hologram_dynamic.html)  
+[`hologram_dynamic.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/hologram_dynamic.js)
 
 ---
 
