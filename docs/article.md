@@ -873,17 +873,17 @@ This indicates that the recursive perfect shuffle system and the floor-modulo bi
 
 Let:
 
-- $\( p \in \mathbb{N} \)$
-- $\( N = 2^{2p+1} \)$
-- $\( \text{Shuffle}_{y}^{[2p+1]} \)$ denote the result of applying a recursive perfect shuffle  
-  with shift $\( y \cdot 2^p \)$, starting from $\([0, 1]\)$
-- $\( \text{Billiard}_{y}(x) = \left\lfloor x \cdot \dfrac{y}{2^p} \right\rfloor \bmod 2 \)$
+- $p \in \mathbb{N}$
+- $N = 2^{2p+1}$
+- $\text{Shuffle}_{y}^{[2p+1]}$ denote the result of applying a recursive perfect shuffle  
+  with shift $y \cdot 2^p \$, starting from $\[0, 1]$
+- $\text{Billiard}_{y}(x) = \left\lfloor x \cdot \dfrac{y}{2^p} \right\rfloor \bmod 2$
 
 Then:
 
 <img src="images/equation_perfect.svg" alt="$\boxed{\text{Shuffle}_{y}^{[2p+1]}(x) = 1 - \text{Billiard}_{y}(N - x - 1)}$">
 
-In other words, the output of the shuffle system is equal to the horizontally flipped version of the billiard sequence, for all $\( x \in [0, N) \)$.
+In other words, the output of the shuffle system is equal to the horizontally flipped version of the billiard sequence, for all $x \in [0, N)$.
 
 This result is supported by empirical tests where both systems produce identical binary outputs across all pixels.
 
