@@ -771,18 +771,23 @@ function shuffle(array, shiftAmount) {
 We start with a base array:
 
 ```js
+let shuffleIterations=2*7+1;
+let powerOfTwo=2**7;
+let shiftAmount=y * powerOfTwo;
 let array1 = [1, 0];
-for (let i = 0; i < 15; i++) {
-	array1 = shuffle(array1, (y + 45) * 128);
+for (let i = 0; i < shuffleIterations; i++) {
+	array1 = shuffle(array1, shiftAmount);
 }
 ```
 
 And compare it with this floor-based sequence:
 
 ```js
+let powerOfTwo=2**7;
+let irrational=y / powerOfTwo;
 let array2 = [];
 for (let i = 0; i < sizexy; i++) {
-	array2[i] = Math.floor(i * (y + 45) / 128) % 2;
+	array2[i] = Math.floor(i * irrational) % 2;
 }
 ```
 
@@ -813,11 +818,11 @@ Here are the results:
 
 Perfect shuffle:
 
-![Picture](images/45_128_shuffle.png)
+![Picture](images/bitstructure_shuffle.png)
 
 Floor-based sequence:
 
-![Picture](images/45_128_floor.png)
+![Picture](images/bitstructure_billiard.png)
 
 The two patterns are visually identical.
 
