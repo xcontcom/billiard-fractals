@@ -20,7 +20,7 @@ function init() {
 	for(let y=0;y<sizexy;y++){
 		map[y]=[];
 		let shiftAmount = y * powerOfTwo;
-		let array = [1, 0];
+		let array = [0, 1];
 		for (let i = 0; i < shuffleIterations; i++) {
 			array = shuffle(array, shiftAmount);
 		}
@@ -44,7 +44,7 @@ function init() {
 	total=sizexy*sizexy;
 	for (let y = 0; y < sizexy; y++) {
 		for (let x = 0; x < sizexy; x++) {
-			if (map[y][x]==!map2[y][sizexy-x-1]) //flipped horizontaly and inverted
+			if (map[y][x]===map2[y][sizexy-x-1]) //flipped horizontaly and inverted
 				mathces++;
 		}
 	}
