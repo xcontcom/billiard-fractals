@@ -771,9 +771,9 @@ function shuffle(array, shiftAmount) {
 We start with a base array:
 
 ```js
-let shuffleIterations=2*7+1;
-let powerOfTwo=2**7;
-let shiftAmount=y * powerOfTwo;
+let shuffleIterations = 2*7+1;
+let powerOfTwo = 2**7;
+let shiftAmount = y * powerOfTwo;
 let array1 = [1, 0];
 for (let i = 0; i < shuffleIterations; i++) {
 	array1 = shuffle(array1, shiftAmount);
@@ -783,11 +783,11 @@ for (let i = 0; i < shuffleIterations; i++) {
 And compare it with this floor-based sequence:
 
 ```js
-let powerOfTwo=2**7;
-let irrational=y / powerOfTwo;
+let powerOfTwo = 2**7;
+let irrationalApproximation = y / powerOfTwo;
 let array2 = [];
 for (let i = 0; i < sizexy; i++) {
-	array2[i] = Math.floor(i * irrational) % 2;
+	array2[i] = Math.floor(i * irrationalApproximation) % 2;
 }
 ```
 
