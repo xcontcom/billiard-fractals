@@ -1,18 +1,18 @@
-var size=1;
-var sizexy=512;
+var size=2;
+var sizexy=256;
 
 function shuffle(array, shiftAmount) {
 	let len = array.length;
 	let shuffled = new Array(len * 2);
 	for (let i = 0; i < len; i++) {
 		shuffled[2 * i] = array[(i + shiftAmount) % len];	// shifted part
-		shuffled[2 * i + 1] = array[i];						// original part
+		shuffled[2 * i + 1] = array[i];				// original part
 	}
 	return shuffled;
 }
 
 function init() {
-	let pow=8;
+	let pow=7;
 	let shuffleIterations = 2*pow+1;
 	let powerOfTwo = 2**pow;
 	
@@ -29,16 +29,27 @@ function init() {
 	drawMap(document.getElementById('myCanvas'), map);
 	
 	
-	map=[];
+	map2=[];
 	for(let y=0;y<sizexy;y++){
 		let irrational = y / powerOfTwo;
 		let array2=[];
 		for (let i=0;i<sizexy;i++){
 			array2[i]=Math.floor(i * irrational)%2;
 		}
-		map[y]=array2;
+		map2[y]=array2;
 	}
-	drawMap(document.getElementById('myCanvas1'), map);
+	drawMap(document.getElementById('myCanvas1'), map2);
+	
+	mathces=0;
+	total=sizexy*sizexy;
+	for (let y = 0; y < sizexy; y++) {
+		for (let x = 0; x < sizexy; x++) {
+			if (map[y][x]==!map2[y][sizexy-x-1]) //flipped horizontaly and inverted
+				mathces++;
+		}
+	}
+	
+	document.getElementById('console-log0').innerHTML=`${mathces} matches of ${total} total.`; // --> "65536 matches of 65536 total."
 
 }
 
