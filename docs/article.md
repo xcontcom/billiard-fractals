@@ -832,6 +832,8 @@ We don’t yet have a formal proof or a unifying theory. But the match is too pr
 
 More analysis is needed to determine whether these overlaps are coincidence, mathematical identity, or reflections of a deeper shared structure. For now, we consider this a visually compelling anomaly - worth future investigation.
 
+[`shuffle_and_billiard_isomorphism.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/shuffle_and_billiard_isomorphism.js)
+
 ---
 
 </details>
