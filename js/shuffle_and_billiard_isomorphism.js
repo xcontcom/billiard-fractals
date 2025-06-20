@@ -44,7 +44,7 @@ function init() {
 	total=sizexy*sizexy;
 	for (let y = 0; y < sizexy; y++) {
 		for (let x = 0; x < sizexy; x++) {
-			if (map[y][x]===map2[y][sizexy-x-1]) //flipped horizontaly and inverted
+			if (map[y][x]===map2[y][sizexy-x-1]) //flipped horizontaly
 				mathces++;
 		}
 	}
