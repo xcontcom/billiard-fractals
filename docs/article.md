@@ -638,7 +638,7 @@ Using [the visualizer](https://xcont.com/binarypattern/visualizer/) in diagonal 
 
 ![Picture](images/0100110110010011001001101100.png)
 
-However, switching to horizontal–vertical visualization, we invert every even-indexed bit and plot dashed lines accordingly. For bits with value 0, the lines are offset by one unit.
+However, switching to horizontal-vertical visualization, we invert every even-indexed bit and plot dashed lines accordingly. For bits with value 0, the lines are offset by one unit.
 
 Vertical lines:
 
