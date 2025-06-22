@@ -611,7 +611,7 @@ Someone may doubt that the parity of the integer part of <img src="images/ksqrt2
 
 ![Picture](images/41.png)
 
-For clarity, I colored the longest curve in the resulting pattern:
+For clarity, we colored the longest curve in the resulting pattern:
 
 ![Picture](images/42.png)
 
