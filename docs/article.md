@@ -188,7 +188,7 @@ Given a rectangle with side lengths <img src="images/M.svg" alt="$M$"> and <img 
 
 ![Resulting pattern (coprime)](images/6.png)
 
-The reflection rule causes the pattern to shift by one cell after each bounce. This alternation creates a consistent visual structure.
+The reflection rule causes the trajectory to shift by one cell after each bounce. This alternation creates a consistent visual structure.
 
 ![Binary fill](images/7.png)
 
