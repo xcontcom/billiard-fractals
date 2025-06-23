@@ -1006,6 +1006,14 @@ This prompts a reconsideration of visualization methods. Rather than relying on 
 2. For each subsequent row along the y-axis, use q[x+ky].
 3. The result is a striking array of structured, interference-like patterns.
 
+k=35:
+
+![Picture](images/_35.png)
+
+k=661:
+
+![Picture](images/661.png)
+
 This reveals that a seemingly chaotic 1D sequence can exhibit coherent spatial behavior when unfolded along two dimensions. Generalizing this, we rewrite the indexing expression as:
 
 ```js
