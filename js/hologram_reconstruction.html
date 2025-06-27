@@ -124,7 +124,7 @@ function droveLines(ax, ay) {
     // Propagate to distance controlled by mouse (y-coordinate)
     //z = 0.07 + ay * 0.001;
 	z = 0.2;
-    document.getElementById('console-log0').innerHTML = `Propagation z: ${z.toFixed(3)} m | Design z: ${z_design} m | MouseX: ${ax} | Mousey: ${ay}`;
+    document.getElementById('console-log0').innerHTML = `Propagation z: ${z.toFixed(3)} m | Design z: ${z_design} m | MouseX: ${ax} | MouseY: ${ay}`;
 
     // Create mask image
     const imgData = ctx2.createImageData(size, size);
