@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Symbolic Fresnel Reconstruction</title>
+    <style>canvas { border: 1px solid #aaa; }</style>
+</head>
+<body>
+<canvas id="canvas" width="512" height="512"></canvas>
+<canvas id="canvas2" width="512" height="512"></canvas>
+<script>
+const size = 512;
+const wavelength = 532e-9; // Wavelength of light (532 nm)
+let z = 0.1; // Propagation distance (initial value)
+const pixelSize = 10e-6; // Physical size of each pixel (10 microns)
+const canvas = document.getElementById('canvas');
+const canvas2 = document.getElementById('canvas2');
+const ctx = canvas.getContext('2d');
+const ctx2 = canvas2.getContext('2d');
+
+// Initialize source field arrays
+const re = new Array(size * size).fill(0);
+const im = new Array(size * size).fill(0);
+
+function fft1D(re, im) {
+	const n = re.length;
+	if (n <= 1) return;
+	const reEven = new Array(n / 2), imEven = new Array(n / 2);
+	const reOdd = new Array(n / 2), imOdd = new Array(n / 2);
+	for (let i = 0; i < n / 2; i++) {
+		reEven[i] = re[2 * i];
+		imEven[i] = im[2 * i];
+		reOdd[i] = re[2 * i + 1];
+		imOdd[i] = im[2 * i + 1];
+	}
+	fft1D(reEven, imEven);
+	fft1D(reOdd, imOdd);
+	for (let k = 0; k < n / 2; k++) {
+		const angle = -2 * Math.PI * k / n;
+		const cos = Math.cos(angle), sin = Math.sin(angle);
+		const tre = cos * reOdd[k] - sin * imOdd[k];
+		const tim = sin * reOdd[k] + cos * imOdd[k];
+		re[k] = reEven[k] + tre;
+		im[k] = imEven[k] + tim;
+		re[k + n / 2] = reEven[k] - tre;
+		im[k + n / 2] = imEven[k] - tim;
+	}
+}
+
+function fft2D(re, im) {
+	// Row-wise FFT
+	for (let y = 0; y < size; y++) {
+		const rowRe = [], rowIm = [];
+		for (let x = 0; x < size; x++) {
+			rowRe.push(re[y * size + x]);
+			rowIm.push(im[y * size + x]);
+		}
+		fft1D(rowRe, rowIm);
+		for (let x = 0; x < size; x++) {
+			re[y * size + x] = rowRe[x];
+			im[y * size + x] = rowIm[x];
+		}
+	}
+	// Column-wise FFT
+	for (let x = 0; x < size; x++) {
+		const colRe = [], colIm = [];
+		for (let y = 0; y < size; y++) {
+			colRe.push(re[y * size + x]);
+			colIm.push(im[y * size + x]);
+		}
+		fft1D(colRe, colIm);
+		for (let y = 0; y < size; y++) {
+			re[y * size + x] = colRe[y];
+			im[y * size + x] = colIm[y];
+		}
+	}
+}
+
+function ifft1D(re, im) {
+	for (let i = 0; i < re.length; i++) im[i] = -im[i];
+	fft1D(re, im);
+	for (let i = 0; i < re.length; i++) {
+		re[i] /= re.length;
+		im[i] = -im[i] / re.length;
+	}
+}
+
+function ifft2D(re, im) {
+	for (let y = 0; y < size; y++) {
+		const rowRe = [], rowIm = [];
+		for (let x = 0; x < size; x++) {
+			rowRe.push(re[y * size + x]);
+			rowIm.push(im[y * size + x]);
+		}
+		ifft1D(rowRe, rowIm);
+		for (let x = 0; x < size; x++) {
+			re[y * size + x] = rowRe[x];
+			im[y * size + x] = rowIm[x];
+		}
+	}
+	for (let x = 0; x < size; x++) {
+		const colRe = [], colIm = [];
+		for (let y = 0; y < size; y++) {
+			colRe.push(re[y * size + x]);
+			colIm.push(im[y * size + x]);
+		}
+		ifft1D(colRe, colIm);
+		for (let y = 0; y < size; y++) {
+			re[y * size + x] = colRe[y];
+			im[y * size + x] = colIm[y];
+		}
+	}
+}
+
+function droveLines(ax, ay) {
+    // Reset field arrays
+    for (let i = 0; i < re.length; i++) {
+        re[i] = 0;
+        im[i] = 0;
+    }
+
+    // Design distance for mask (fixed at 10 cm)
+    const z_design = 0.2;
+    // Propagate to distance controlled by mouse (y-coordinate)
+    //z = 0.07 + ay * 0.001;
+	z = 0.2;
+    document.getElementById('console-log0').innerHTML = `Propagation z: ${z.toFixed(3)} m | Design z: ${z_design} m | MouseX: ${ax} | Mousey: ${ay}`;
+
+    // Create mask image
+    const imgData = ctx2.createImageData(size, size);
+    const data = imgData.data;
+
+    // Critical fix: Set 'a' based on DESIGN distance
+    const a = 1 / (wavelength * z_design);
+
+    for (let x = 0; x < size; x++) {
+        for (let y = 0; y < size; y++) {
+            // Convert to physical coordinates (meters)
+            const xx = (x - size / 2) * pixelSize;
+            const yy = (y - size / 2) * pixelSize;
+            
+            // Calculate binary mask from parabolic phases
+            // Removed arbitrary Math.SQRT2 factor
+            let zval = 
+                Math.floor(a * (xx * xx + yy * yy)) +
+                Math.floor(a * ((xx + 500 * pixelSize) * (xx + 500 * pixelSize) + yy * yy)) +
+                Math.floor(a * ((xx + (780+ax) * pixelSize) * (xx + (780+ax) * pixelSize) + (yy + (280+ay) * pixelSize) * (yy + (280+ay) * pixelSize)));
+            const binary = zval % 2;
+            
+            // Draw mask on canvas2
+            const idx = (y * size + x) * 4;
+            const v = binary * 255;
+            data[idx] = data[idx + 1] = data[idx + 2] = v;
+            data[idx + 3] = 255;
+
+            // Critical fix: Set field to 1 (0°) or -1 (180°) based on binary value
+            re[y * size + x] = binary ? 1 : -1;
+            im[y * size + x] = 0;
+        }
+    }
+    ctx2.putImageData(imgData, 0, 0);
+
+    // Perform 2D FFT
+    fft2D(re, im);
+
+    // Apply Fresnel transfer function in frequency domain
+    for (let x = 0; x < size; x++) {
+        for (let y = 0; y < size; y++) {
+            // Frequency coordinates (shifted)
+            const fx = (x - size / 2) / (pixelSize * size);
+            const fy = (y - size / 2) / (pixelSize * size);
+            // Phase factor for current propagation distance
+            const phase = -Math.PI * wavelength * z * (fx * fx + fy * fy);
+            const idx = y * size + x;
+            // Complex exponential
+            const Hre = Math.cos(phase);
+            const Him = Math.sin(phase);
+            // Multiply by transfer function
+            const [u_re, u_im] = [re[idx], im[idx]];
+            re[idx] = u_re * Hre - u_im * Him;
+            im[idx] = u_re * Him + u_im * Hre;
+        }
+    }
+
+    // Inverse FFT to get reconstructed field
+    ifft2D(re, im);
+
+    // Render intensity (|E|^2)
+    const img = ctx.createImageData(size, size);
+    for (let i = 0; i < size * size; i++) {
+        const intensity = re[i] * re[i] + im[i] * im[i];
+        // Scale intensity for visibility
+        const v = Math.min(255, Math.floor(intensity * 100));
+        img.data[i * 4] = img.data[i * 4 + 1] = img.data[i * 4 + 2] = v;
+        img.data[i * 4 + 3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+}
+
+
+function getMousePos(canvas, evt){
+	let obj=canvas;
+	let top=0;
+	let left=0;
+	while (obj && obj.tagName != 'BODY') {
+		top+=obj.offsetTop;
+		left+=obj.offsetLeft;
+		obj=obj.offsetParent;
+	}
+ 
+	let mouseX=evt.clientX-left+window.pageXOffset;
+	let mouseY=evt.clientY-top+window.pageYOffset;
+	return {
+		x: mouseX,
+		y: mouseY
+	};
+}
+
+window.onload=function(){
+let canvas=document.getElementById('canvas');
+let ctx=canvas.getContext('2d');
+canvas.width=size;
+canvas.height=size;
+canvas.addEventListener('mousemove', function(evt){
+		let mousePos=getMousePos(canvas, evt);
+		droveLines(mousePos.x, mousePos.y);
+	}, false);
+};
+
+</script>
+<div id="console-log0"></div>
+<div><b>Two points (paraboloids) are fixed. The third point (paraboloid) is moved with the mouse</b></div>
+<div>The full article with explanation: <a href="https://github.com/xcontcom/billiard-fractals/blob/main/docs/article.md">https://github.com/xcontcom/billiard-fractals/blob/main/docs/article.md</a></div>
+</body>
+</html>
