@@ -36,7 +36,7 @@ The following sequence illustrates the core mechanism of the discrete billiard s
 
 An animated version:
 
-![Picture](images/2.gif)
+![Picture](images/pattern_23_13.gif)
 
 Output pattern:
 
