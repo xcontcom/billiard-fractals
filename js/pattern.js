@@ -77,8 +77,8 @@ function getMousePos(canvas, evt) {
 window.onload = function () {
     const canvas = document.getElementById('myCanvas');
     const ctx = canvas.getContext('2d');
-    canvas.width = 1400;
-    canvas.height = 1000;
+    canvas.width = 1000;
+    canvas.height = 800;
 
     canvas.addEventListener('mousemove', function (evt) {
         const mousePos = getMousePos(canvas, evt);
