@@ -746,9 +746,7 @@ Fractal fill based on:
 
 ---
 
-<details><summary>Perfect Shuffle Comparison</summary>
-
----
+## Perfect Shuffle Comparison
 
 ### Pattern Matching via Perfect Shuffles
 
@@ -905,10 +903,6 @@ This relation holds **exactly**, using pure bitwise arithmetic.
 
 See:
 [`shuffle_and_billiard_isomorphism.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/shuffle_and_billiard_isomorphism.js)
-
----
-
-</details>
 
 ---
 
