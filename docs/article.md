@@ -1108,7 +1108,7 @@ For <img src="images/hol_b0c1d1div5.svg" alt="$b=0, c=1, d=1/5$"> our equation b
 |---|---|
 | <img src="images/hol_a1.svg" alt="$a=1$"> | <img src="images/hol_a10.svg" alt="$a=10$"> |
 | <img src="images/hol_d1div5_a1.png"> | <img src="images/hol_d1div5_a10.png"> |
-| <img src="images/hol_a100.svg" alt="$a=100$"> | <img src="images/hol_a100.svg" alt="$a=1000$"> |
+| <img src="images/hol_a100.svg" alt="$a=100$"> | <img src="images/hol_a1000.svg" alt="$a=1000$"> |
 | <img src="images/hol_d1div5_a100.png"> | <img src="images/hol_d1div5_a1000.png"> |
 
 The most interesting patterns are obtained if we take a <img src="images/d.svg" alt="$d$"> that differs slightly from 1. For example, for 
