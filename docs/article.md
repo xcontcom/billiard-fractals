@@ -1167,3 +1167,13 @@ the resulting binary fields begin to resemble interference patterns observed in 
 Though entirely symbolic, these systems show a striking visual similarity to holographic interference textures. This suggests that certain nonlinear discretizations may encode symbolic analogs of wave behavior - hinting at a deeper structural correspondence between symbolic mathematics and wave-based physical systems.
 
 </details>
+
+## About the Author
+Serhii Herasymov  
+*Programmer & Math Enthusiast* (Ukraine → Ireland)  
+
+Email: sergeygerasimofff@gmail.com  
+GitHub: [xcontcom](https://github.com/xcontcom)  
+X (Twitter): [@xcontcom](https://x.com/xcontcom)  
+
+Feedback welcome.
