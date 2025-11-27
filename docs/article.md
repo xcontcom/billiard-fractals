@@ -130,18 +130,18 @@ function revers(array, s) {
 	return temp;
 }
 
-function seqence(fn, fn1) {
+function sequence(fn, fn1) {
 	if (fn1 === 3) return [1];
 	fn1 = fn - fn1;
 	fn = fn - fn1;
-	var array = seqence(fn, fn1);
+	var array = sequence(fn, fn1);
 	var a0 = invers(array);
 	var a1 = (fn1 % 2 === 0) ? [1] : [];
 	var a2 = revers(array, Math.floor((fn - fn1) / 2));
 	return a0.concat(a1, a2);
 }
 
-function seqenceFibonacci(iterations) {
+function sequenceFibonacci(iterations) {
 	let f0a = [0];
 	let f1a = [0];
 	for (let i = 0; i < iterations; i++) {
@@ -201,8 +201,6 @@ When <img src="images/M.svg" alt="$M$"> and <img src="images/N.svg" alt="$N$"> a
 [JavaScript implementation](https://xcont.com/binarypattern/)  
 [`binarypattern.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/binarypattern.js)
 
-<details><summary>Gif</summary>
-
 ---
 
 ![Gif](images/quazi243_146_12.gif)
@@ -211,8 +209,6 @@ When <img src="images/M.svg" alt="$M$"> and <img src="images/N.svg" alt="$N$"> a
 [`binarypattern_point.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/binarypattern_point.js)
 
 ---
-
-</details>
 
 If the dimensions share a common divisor (<img src="images/gcd(M,N)1.svg" alt="$gcd(M, N) > 1$">), the trajectory terminates at a corner before filling all cells:
 
@@ -259,9 +255,9 @@ This mapping gives the sequence its meaning. In the diagram below, the trajector
 
 ![Direction-colored trajectory](images/17.png)
 
-<details><summary>Encoding Rational Division via Billiards</summary>
-
 ---
+
+### Encoding Rational Division via Billiards
 
 A curious side effect of the billiard construction is that it naturally encodes binary division of two numbers. Specifically, by tracking the direction of the billiard ball’s movement at each wall collision, and sampling this information at exponentially increasing intervals, one can extract the binary digits of a rational fraction.
 
@@ -291,10 +287,6 @@ This produces the binary expansion:
 
 0.1001111001111001111…
 Which is precisely the binary representation of <img src="images/13frac21.svg" alt="$\frac{13}{21}$">.
-
----
-
-</details>
 
 ---
 
@@ -384,9 +376,9 @@ Now we can build a binary sequence for billiards with any sides <img src="images
 233x55 (odd Fibonacci numbers <img src="images/F_n.svg" alt="$F_n$"> and <img src="images/F_{n-3}.svg" alt="$F_{n-3}$">):
 010010011011011001001101101100100100110110010010011011001001001101101100100110110110010010011011001001001101100100100
 
-<details><summary>This is dope</summary>
-
 ---
+
+### This is interesting
 
 Very curious graphs are obtained if you take a billiard table with width <img src="images/M.svg" alt="$M$"> and construct sequences for each <img src="images/N.svg" alt="$N$"> from <img src="images/0.svg" alt="$0$"> to <img src="images/M.svg" alt="$M$">. Then these sequences are stacked.
 
@@ -410,8 +402,6 @@ Some examples.
 [`sequences.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/sequences.js)
 
 ---
-
-</details>
 
 We have sequences. How else can we visualize binary sequences? With Turtle graphics.
 
@@ -495,10 +485,9 @@ We've got exactly the same sequence of ones and zeros.
 
 1(1), 2(0), 3(1), 4(0), 5(0), 6(1), 7(0), 8(1), 9(1), 10(0), 11(1), 12(0), 13(0), 14(1), 15(0), 16(1), 17(1), 18(0), 19(1), 20(0), 21(1), 22(1), 23(0), 24(1), 25(0), 26(0), 27(1)
 
-
-<details><summary>For other numbers</summary>
-
 ---
+
+### For other numbers
 
 The origin is the upper left corner. The <img src="images/X.svg" alt="$X$"> axis is the width of the billiard table <img src="images/M.svg" alt="$M$">. The <img src="images/Y.svg" alt="$Y$"> axis is the height of the billiard table <img src="images/N.svg" alt="$N$">. The numbers for which the sequences match are marked with white dots:
 
@@ -523,8 +512,6 @@ Purple - visualization of the second sequence.
 [`turtle_dynamic.js`](https://github.com/xcontcom/billiard-fractals/blob/main/js/turtle_dynamic.js)
 
 ---
-
-</details>
 
 In fact, in some cases, we do not need to take the remainder from the division. For Fibonacci numbers, it is enough to check the parity of the integer part of the division of <img src="images/2kN.svg" alt="$2kN$"> by <img src="images/M.svg" alt="$M$">:
 
@@ -579,9 +566,9 @@ Angles are <img src="images/90^{circ}.svg" alt="$90^{\circ}$"> and <img src="ima
 
 ![Picture](images/38.png)
 
-<details><summary>This is interesting</summary>
-
 ---
+
+### This is interesting
 
 From this curve, we can reconstruct the "billiard pattern" and see what is around the curve:
 
@@ -591,9 +578,7 @@ It would be interesting to choose <img src="images/M.svg" alt="$M$"> and <img sr
 
 ---
 
-</details>
-
-<details><summary>And this</summary>
+### And this
 
 ---
 
@@ -604,8 +589,6 @@ Number of segments in the repeating part of the curve = <img src="images/Pn(2).s
 <img src="images/sqrt{2}equal.svg" alt="$\sqrt{2} = \lim_{n\to\infty} \tfrac{P_{n-1}+P_n}{P_n}$">
 
 ---
-
-</details>
 
 Someone may doubt that the parity of the integer part of <img src="images/ksqrt2.svg" alt="$k\sqrt{2}$"> gives a fractal sequence. Let's visualize part of this sequence with the visualizer described earlier:
 
@@ -718,11 +701,9 @@ Fractal fill based on:
 
 ![Picture](images/sqrt2.png)
 
-<details><summary>Gif</summary>
+Gif:
 	
 ![Picture](images/sqrt2.gif)
-
-</details>
 
 <img src="images/sqrt5plus1.svg" alt="$Q_n=\lfloor n(\sqrt{5}+1) \rfloor \; (\textrm{mod} \; 2); \quad n=0,1,2,…$">
 
@@ -730,11 +711,9 @@ Fractal fill based on:
 
 ![Picture](images/sqrt5plus1.png)
 
-<details><summary>Gif</summary>
+Gif:
 	
 ![Picture](images/sqrt5plus1.gif)
-
-</details>
 
 ### Interactive
 
@@ -982,11 +961,9 @@ Visualizing this sequence with the Symbolic Filling Algorithm yields a disordere
 
 ![Picture](images/sqrt2surface.png)
 
-<details><summary>Gif</summary>
+Gif:
 	
 ![Picture](images/sqrt2surface.gif)
-
-</details>
 
 Similarly, applying Turtle graphics results in "chaotic" outputs
 
