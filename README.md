@@ -1,6 +1,7 @@
 # Billiard Fractals
 
-## [Full article](https://github.com/xcontcom/billiard-fractals/blob/main/docs/article.md)
+## [Full article](https://xcontcom.github.io/billiard-fractals/docs/article.html)
+
 
 ![Preview](docs/images/0.png)
 
@@ -24,4 +25,4 @@ we observe patterns resembling **interference textures** or **symbolic holograph
 
 The work presented here is a translation and adaptation of my articles on Habr ([Part 1](https://habr.com/en/articles/194406/), [Part 2](https://habr.com/en/articles/441516/), [Part 3](https://habr.com/en/articles/447326/), [Part 4](https://habr.com/en/articles/595433/))
 
-## [Full article](https://github.com/xcontcom/billiard-fractals/blob/main/docs/article.md)
+## [Full article](https://xcontcom.github.io/billiard-fractals/docs/article.html)
