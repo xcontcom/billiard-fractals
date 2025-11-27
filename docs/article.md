@@ -979,7 +979,7 @@ This prompts a reconsideration of visualization methods. Rather than relying on 
 
 k=35:
 
-![Picture](images/_35.png)
+![Picture](images/35fix.png)
 
 k=661:
 
