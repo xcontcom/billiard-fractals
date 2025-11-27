@@ -174,7 +174,7 @@ While the above generators are constructed specifically for Fibonacci-sized rect
 
 One of the central challenges that motivated the progression from the original 2013 construction to the deeper analysis in 2019 was the question of irrational proportions: what happens when the rectangle’s side lengths form a truly irrational ratio, such as (1 : φ), rather than an integer-based approximation like 13 : 21?
 
-While recursive generators such as `seqence(fn, fn1)` accurately reproduced the symbolic boundary sequences for Fibonacci-based rectangles, they were inherently tied to integer dimensions. The challenge was clear: how can one generate the same structures when no exact grid alignment is possible - when the trajectory no longer closes?
+While recursive generators such as `sequence(fn, fn1)` accurately reproduced the symbolic boundary sequences for Fibonacci-based rectangles, they were inherently tied to integer dimensions. The challenge was clear: how can one generate the same structures when no exact grid alignment is possible - when the trajectory no longer closes?
 
 This question defines the next stage of the investigation. To answer it, we will analyze the boundary sequences themselves - the so-called *fractal sequences* - and show how they encode the entire 2D pattern. We will show that these sequences - far from being edge artifacts - contain enough information to deterministically reconstruct the entire 2D pattern. This finding enables a powerful dimensional reduction: the entire billiard system can be expressed as a 1D sequence.
 
