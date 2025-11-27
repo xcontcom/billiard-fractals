@@ -574,7 +574,7 @@ From this curve, we can reconstruct the "billiard pattern" and see what is aroun
 
 ![Picture](images/39.png)
 
-It would be interesting to choose <img src="images/M.svg" alt="$M$"> and <img src="images/N.svg" alt="$N$"> for this pattern.
+It would be interesting to find <img src="images/M.svg" alt="$M$"> and <img src="images/N.svg" alt="$N$"> for this pattern.
 
 ---
 
