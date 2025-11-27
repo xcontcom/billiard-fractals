@@ -26,3 +26,13 @@ we observe patterns resembling **interference textures** or **symbolic holograph
 The work presented here is a translation and adaptation of my articles on Habr ([Part 1](https://habr.com/en/articles/194406/), [Part 2](https://habr.com/en/articles/441516/), [Part 3](https://habr.com/en/articles/447326/), [Part 4](https://habr.com/en/articles/595433/))
 
 ## [Full article](https://xcontcom.github.io/billiard-fractals/docs/article.html)
+
+## License
+MIT License. See [LICENSE](LICENSE) for details.
+
+## Contact
+Serhii Herasymov
+
+sergeygerasimofff@gmail.com
+
+https://github.com/xcontcom
