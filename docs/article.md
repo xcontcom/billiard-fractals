@@ -1,5 +1,7 @@
 # The Billiard Fractals
 
+[Repository](https://github.com/xcontcom/billiard-fractals)
+
 Complex systems often appear chaotic or incomprehensible, yet closer examination reveals that such complexity can frequently be reduced to a simple underlying mechanism. By systematically removing layers of emergent behavior, one can uncover a fundamental rule or equation from which the entire system originates.
 
 ![Picture](images/0.png)
