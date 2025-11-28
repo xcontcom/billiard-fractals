@@ -2,6 +2,8 @@
 
 ## [Full article](https://xcontcom.github.io/billiard-fractals/docs/article.html)
 
+[Article on DEV.to](https://dev.to/xcontcom/billiard-fractals-the-infinite-patterns-hidden-in-a-rectangle-282l)
+
 
 ![Preview](docs/images/0.png)
 
