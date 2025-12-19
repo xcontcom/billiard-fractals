@@ -553,7 +553,7 @@ If we do not subtract <img src="images/k.svg" alt="$k$"> each time, then every s
 
 <img src="images/floor(kx)mod2.svg" alt="$Q_k=\lfloor k\sqrt{x} \rfloor \; (\textrm{mod} \; 2); \quad k=0,1,2,…$">:
 
-Let's build a sequence for <img src="https://github.com/xcontcom/billiard-fractals/blob/main/docs/images/ksqrt2.svg" alt="$k\sqrt{2}$">
+Let's build a sequence for <img src="images/ksqrt2.svg" alt="$k\sqrt{2}$">
 
 ```js
 var x=2;
